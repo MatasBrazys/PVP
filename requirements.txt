@@ -1,1 +1,6 @@
-# bus rasomos bibliotekos reikalingos:
+fastapi
+uvicorn
+pdfplumber
+python-docx
+google-generativeai
+python-multipart
