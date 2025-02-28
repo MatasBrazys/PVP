@@ -17,8 +17,8 @@
 }
 
 .logo {
-  width: 240px;
-  height: 107px;
+  width: 200px;
+  height: 80px;
 }
 
 .nav-links {
@@ -28,7 +28,7 @@
 
 .nav-item {
   color: #262626;
-  font-size: 28px;
+  font-size: 26px;
   font-family: Inter;
   font-weight: 400;
   text-decoration: none;
@@ -41,8 +41,8 @@
 }
 
 .account-button {
-  width: 230px;
-  height: 80px;
+  width: 200px;
+  height: 60px;
   text-align: center;
   background: #7F56D9;
   border-radius: 24px;
@@ -58,7 +58,7 @@
 
 .account-button-text {
   color: white;
-  font-size: 28px;
+  font-size: 24px;
   font-family: Inter;
   font-weight: 600;
   text-decoration: none;
