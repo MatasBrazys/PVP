@@ -1,0 +1,216 @@
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 548px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 43, 43, 0.8);
+  }
+  
+  .hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+  
+  .hero-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    max-width: 1148px;
+  }
+  
+  .hero-content h1 {
+    font-size: 48px;
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    line-height: 58px;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .hero-content p {
+    font-size: 32px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    line-height: 38px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-button {
+    width: 313px;
+    height: 76px;
+    background: #7F56D9;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 30px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    line-height: 36px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .hero-button:hover {
+    background: #6d48c5;
+    transform: scale(1.05);
+  }
+
+/* CSS (HowToUse.css) */
+.how-to-use-container {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .title {
+    color: #7F56D9;
+    font-size: 64px;
+    font-weight: 800;
+  }
+  
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #7F56D9;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-circle {
+    position: absolute;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background: #7F56D9;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .step-container {
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+    width: 60%;
+    margin: 20px 0;
+    position: relative;
+  }
+  
+  .left {
+    flex-direction: row;
+    text-align: right;
+    
+  }
+  
+  .right {
+    flex-direction: row-reverse;
+    text-align: left;
+  }
+  
+  .step-number {
+    background: #D9D9D9;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    max-width: 100px;
+    text-align: center;
+    
+  }
+  .step-container.left .step-number {
+    margin-left: auto;
+}
+
+.step-container.right .step-number {
+    margin-right: auto;
+}
+  .step-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .step-icon img {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .step-content {
+    max-width: 340px;
+  }
+  .step-content p{
+    font-size: 20px;
+    margin-top: -15px
+  }
+  .step-content div{
+    align-items: center;
+  }
+
+  .container {
+    text-align: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto; /* Centers it horizontally */
+  }
+  
+  h1 {
+    color: #7F56D9;
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 40px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kortelės vienoje eilutėje */
+    gap: 30px; /* Tarpas tarp kortelių */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .card {
+    background: white;
+    box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center; 
+    max-width: 400px;
+  }
+  
+  .card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .icon {
+    font-size: 50px; /* Piktogramos dydis */
+    margin-bottom: 10px;
+  }
+  
