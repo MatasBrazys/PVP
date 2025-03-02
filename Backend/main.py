@@ -1,9 +1,10 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, HTTPException
 import pdfplumber
 import docx
 import os
 import google.generativeai as genai
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -18,6 +19,28 @@ GEMINI_API_KEY = "AIzaSyDlBLPheUB_o5mKERKqLZKVE-UtYbRkIoM"
 genai.configure(api_key=GEMINI_API_KEY)
 
 
+#Registracijos Backas
+mock_db = []
+
+class RegisterData(BaseModel):
+    name: str
+    surname: str
+    email: str
+    password: str
+
+
+@app.post("/register")
+async def register(data: RegisterData):
+
+    if any(user['email'] == data.email for user in mock_db):
+        raise HTTPException(status_code=400, detail="Email already registered")
+        
+    mock_db.append(data.dict())
+    return {"message": "Registration successful"}
+
+@app.get("/users")
+async def get_users():
+    return mock_db
 # try:
 #     model = genai.GenerativeModel("gemini-1.5-flash")
 #     response = model.generate_content("Hello! Can you analyze a CV?")
