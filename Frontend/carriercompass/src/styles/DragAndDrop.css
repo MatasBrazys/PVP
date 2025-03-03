@@ -1,0 +1,348 @@
+/* Centering and container styling */
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Toggle button group */
+.button-group {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background: #7F56D9;
+    border-radius: 20px;
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.toggle-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: #9067f0;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slide-left {
+    transform: translateX(100%);
+}
+
+.slide-right {
+    transform: translateX(0%);
+    left: 0px;
+    width: 52%;
+
+}
+
+.toggle-button {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgb(231, 231, 231);
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+    font-family: Inter, sans-serif;
+}
+
+.toggle-button.active {
+    color: white;
+}
+
+/* Dropzone Styling */
+.dropzone {
+    width: 80%;
+    margin: 0 auto;
+    border: 2px dashed #bbb;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+}
+
+.dropzone:hover {
+    border-color: #7F56D9;
+}
+
+.upload-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.dropzone h2 {
+    color: rgba(43, 43, 43, 0.8);
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: -10px;
+}
+
+.dropzone p {
+    font-size: 18px;
+    color: #555;
+}
+
+.select-file {
+    background-color: #7F56D9;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 18px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+}
+
+.select-file:hover {
+    background-color: #6d48c5;
+}
+
+/* Dropdown Menu */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.dropdown-toggle {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dropdown-toggle:hover {
+    background: #f8f8f8;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-top: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-item input {
+    margin-right: 10px;
+}
+
+/* File List */
+.file-list {
+    text-align: left;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    background: #fafafa;
+}
+
+.file-item {
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+}
+
+.file-item:last-child {
+    border-bottom: none;
+}
+
+.remove-file {
+    background: none;
+    border: none;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.remove-file:hover {
+    color: #c9302c;
+}
+
+/* Submit Button */
+.submit-button {
+    margin-top: 15px;
+    background-color: #7F56D9;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    max-width: 400px;
+    width: 90%;
+    font-size: 20px;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+}
+.submit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.submit-button:hover {
+    background-color: #6d48c5;
+}
+.dropzone-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: #f9f9f9;
+    position: relative;
+  }
+  
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Centruojama per visą ekraną */
+    background: rgba(255, 255, 255, 0.8); /* Lengvas permatomas fonas */
+    backdrop-filter: blur(5px); /* Švelnus blur efektas */
+}
+
+.spinner {
+    position: relative;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    border: 6px solid transparent;
+    border-radius: 50%;
+    border-top-color: #7F56D9; /* Gradientinė spalva */
+    border-right-color: #4A32A8;
+    animation: spin 0.8s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(127, 86, 217, 0.5); /* Glow efektas */
+    margin-top: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Papildomas tekstas */
+.loading-text {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 150px;
+    font-size: 42px;
+    font-weight: 600;
+    color: #4A32A8;
+    font-family: 'Inter', sans-serif;
+    animation: fadeInOut 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.results-section {
+    display: flex;
+    flex-direction: column; /* Elementai vienas po kitu */
+    align-items: center; /* Centruoja turinį */
+    margin-top: 50px;
+
+}
+.results-section h2{
+    font-size: 40px;
+    font-weight: 800;
+    color: #4A32A8;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0px;
+}
+.result-textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+}
+
+.go-back-button {
+    background: #7F56D9;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(127, 86, 217, 0.3);
+    width: 200px; /* Fiksuotas plotis, kad atrodytų tvarkingai */
+    text-align: center;
+    margin-top: 10px;
+}
+
+.go-back-button:hover {
+    background: #6a41c2;
+    box-shadow: 0 6px 12px rgba(127, 86, 217, 0.4);
+    transform: translateY(-2px);
+}
+
+.go-back-button:active {
+    background: #5a32a2;
+    transform: translateY(1px);
+}
+

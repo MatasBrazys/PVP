@@ -54,10 +54,12 @@ const Features = () => {
   return (
     <div className="container">
       <h1>Kaip galime padėti?</h1>
+      <div class="grid-wrapper">
       <div className="grid">
         {services.map((service, index) => (
           <Card key={index} title={service.title} description={service.description} icon={service.icon} />
         ))}
+      </div>
       </div>
     </div>
   );

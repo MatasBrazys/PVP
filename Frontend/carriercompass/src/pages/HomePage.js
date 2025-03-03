@@ -4,7 +4,7 @@ import HowToUse from "../components/HowToUse";
 import AiToolFeatures from "../components/Features";
 import BottomHeader from "../components/BottomHeader";
 
-const App = () => {
+const HomePage = () => {
   return (
     <div>
       <HeroSection />
@@ -15,4 +15,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default HomePage;

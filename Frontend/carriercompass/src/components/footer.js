@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-content">
         {/* AI TOOL Section */}
         <div className="footer-section">
-            <a href="#"><img src={logo2} alt="CareerCompass Logo2" className="logo2" /></a>
+            <a href="/"><img src={logo2} alt="CareerCompass Logo2" className="logo2" /></a>
         </div>
 
         {/* Pagalba Section */}

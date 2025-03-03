@@ -1,20 +1,32 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Header from './components/Header';
 import Footer from './components/footer';
 import Copyright from './components/copyright';
-import Home from './pages/Home';
+import Home from './pages/HomePage';
+import CVDraganddrop from './pages/dragAndDropPage';
+
 
 function App() {
   return (
     
-    <div className="App">
-      <Header />
-      <Home />
-      <Footer />
-      <Copyright />
-      
-    </div>
+    <Router>
+      <div className="App">
+        
+        <Header />
+        <div className="layout">
+        <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dragAndDrop" element={<CVDraganddrop />} />
+        </Routes>
+        </div>
+        </div>
+        <Footer />
+        <Copyright />
+      </div>
+    </Router>
     
   );
 }

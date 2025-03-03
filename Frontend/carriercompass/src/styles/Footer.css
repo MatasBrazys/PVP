@@ -12,6 +12,7 @@
     padding-bottom: 40px;
     display: flex;
     justify-content: center;
+    
   } 
   
   .footer-content {
@@ -32,19 +33,19 @@
   
   .footer-title {
     color: #7F56D9;
-    font-size: 28px;
+    font-size: 24px;
     font-family: Inter;
     font-weight: 700;
     margin-bottom: 10px;
   }
   .footer-text-conntact {
-    font-size: 24px;
+    font-size: 18px;
     font-family: Inter;
     font-weight: 500;
     line-height: 20px;
   }
   .footer-text {
-    font-size: 24px;
+    font-size: 18px;
     font-family: Inter;
     font-weight: 500;
     line-height: 29px;
@@ -62,7 +63,7 @@
   .footer-list a {
     text-decoration: none;
     color: white;
-    font-size: 27px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 29px;
     transition: color 0.2s ease-in-out;
@@ -73,7 +74,10 @@
   }
   
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 950px) {
+    .footer{
+      width: 100%;
+    }
     .footer-content {
       flex-direction: column;
       text-align: center;
