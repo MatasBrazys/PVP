@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/copyright.css";
+import "../../styles/copyright.css";
 
 const copyright = () => {
   return (

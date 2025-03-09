@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
-import Header from './components/Header';
-import Footer from './components/footer';
-import Copyright from './components/copyright';
+import Header from './components/General/Header';
+import Footer from './components/General/footer';
+import Copyright from './components/General/copyright';
 import Home from './pages/HomePage';
 import CVDraganddrop from './pages/dragAndDropPage';
+import ToolPlans from './components/PlansPage/Plans';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dragAndDrop" element={<CVDraganddrop />} />
+          <Route path="/Plan" element={<ToolPlans />} />
         </Routes>
         </div>
         </div>

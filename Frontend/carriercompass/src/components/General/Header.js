@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../styles/Header.css";
-import logo from "../images/logo CareerCompass.svg";
+import "../../styles/Header.css";
+import logo from "../../images/logo CareerCompass.svg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +39,7 @@ const Header = () => {
       {/* Navigation Links (Desktop) */}
       <div className="nav-links">
         <a href="/" className="nav-item">Pagrindinis</a>
-        <a href="#" className="nav-item">Planai</a>
+        <a href="/Plan" className="nav-item">Planai</a>
         <a href="#kontaktai" className="nav-item">Kontaktai</a>
         <a href="/dragAndDrop" className="nav-item">Tool</a>
       </div>

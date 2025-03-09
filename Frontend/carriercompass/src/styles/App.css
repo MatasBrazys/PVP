@@ -22,8 +22,10 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 70vh; /* Užtikrina, kad turinys visada užims bent visą ekraną */
+  
 }
 
 .content {
   flex: 1; /* Užtikrina, kad turinys išstumia footer'į į apačią */
+  
 }

@@ -1,8 +1,8 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
-import HowToUse from "../components/HowToUse";
-import AiToolFeatures from "../components/Features";
-import BottomHeader from "../components/BottomHeader";
+import HeroSection from "../components/HomePage/HeroSection";
+import HowToUse from "../components/HomePage/HowToUse";
+import AiToolFeatures from "../components/HomePage/Features";
+import BottomHeader from "../components/HomePage/BottomHeader";
 
 const HomePage = () => {
   return (

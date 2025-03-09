@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Footer.css";
-import logo2 from "../images/logo CareerCompass white.svg";
+import "../../styles/Footer.css";
+import logo2 from "../../images/logo CareerCompass white.svg";
 
 const Footer = () => {
   return (

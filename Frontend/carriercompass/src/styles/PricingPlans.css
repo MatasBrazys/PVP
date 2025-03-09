@@ -1,0 +1,138 @@
+.pricing-page{
+height: 100vh;
+}
+/* Hero Section */
+.plan-hero-container {
+    width: 100%;
+    max-width: 1920px;
+    height: 500px;
+    background: #7F56D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.plan-hero-subtitle {
+    font-size: 26px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    color: #F1F1F1;
+    margin-top: 80px;
+}
+
+.plan-hero-title {
+    font-size: 48px;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    color: white;
+    max-width: 800px;
+    margin-top: -20px;
+}
+
+/* Toggle Button Group */
+.plan-button-group {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    margin: auto;
+    background: #6e4abb;
+    border-radius: 20px;
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    bottom: 240px;
+}
+
+.plan-toggle-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background: #9067f0;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Toggle Button Movements */
+.plan-slide-left {
+    transform: translateX(-4%);
+}
+
+.plan-slide-right {
+    transform: translateX(96%);
+}
+
+/* Toggle Buttons */
+.plan-toggle-button {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgb(231, 231, 231);
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+    font-family: Inter, sans-serif;
+}
+
+.plan-toggle-button.active {
+    color: white;
+}
+
+/* Pricing Cards */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    top: -250px;
+}
+
+.pricing-card {
+    width: 350px;
+    background: white;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: left;
+    position: relative;
+}
+
+.plan-name {
+    font-size: 45px;
+    font-weight: 600;
+    color: #7f56d9;
+    margin-bottom: -30px;
+}
+
+.plan-price {
+    font-size: 36px;
+    font-weight: 600;
+    color: black;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+}
+
+.plan-features li {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.plan-features li img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
