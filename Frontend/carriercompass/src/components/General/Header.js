@@ -52,7 +52,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`} ref={menuRef}>
         <a href="/" className="nav-item" onClick={() => setMenuOpen(false)}>Pagrindinis</a>
-        <a href="#" className="nav-item" onClick={() => setMenuOpen(false)}>Planai</a>
+        <a href="/Plan" className="nav-item" onClick={() => setMenuOpen(false)}>Planai</a>
         <a href="#kontaktai" className="nav-item" onClick={() => setMenuOpen(false)}>Kontaktai</a>
         <a href="/dragAndDrop" className="nav-item" onClick={() => setMenuOpen(false)}>Tool</a>
         <a href="#" className="nav-item" onClick={() => setMenuOpen(false)}>Mano paskyra</a>

@@ -6,7 +6,7 @@ import Footer from './components/General/footer';
 import Copyright from './components/General/copyright';
 import Home from './pages/HomePage';
 import CVDraganddrop from './pages/dragAndDropPage';
-import ToolPlans from './components/PlansPage/Plans';
+import ToolPlans from './pages/PlanPage';
 
 
 function App() {

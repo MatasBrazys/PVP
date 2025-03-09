@@ -12,7 +12,8 @@
     padding-bottom: 40px;
     display: flex;
     justify-content: center;
-    
+    position: relative; /* Ensures it's placed normally */
+    z-index: 1;
   } 
   
   .footer-content {

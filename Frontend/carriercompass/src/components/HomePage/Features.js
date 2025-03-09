@@ -3,8 +3,8 @@ import "../../styles/Home.css";
 
 const Card = ({ title, description, icon }) => {
   return (
-    <div className="card">
-      <div className="icon">{icon}</div>
+    <div className="features-card">
+      <div className="features-icon">{icon}</div>
       <h2>{title}</h2>
       <p>{description}</p>
     </div>
@@ -52,10 +52,10 @@ const Features = () => {
   ];
 
   return (
-    <div className="container">
+    <div className="features-container">
       <h1>Kaip galime padėti?</h1>
-      <div class="grid-wrapper">
-      <div className="grid">
+      <div class="features-grid-wrapper">
+      <div className="features-grid">
         {services.map((service, index) => (
           <Card key={index} title={service.title} description={service.description} icon={service.icon} />
         ))}

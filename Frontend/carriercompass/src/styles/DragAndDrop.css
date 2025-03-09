@@ -46,7 +46,7 @@
     background: none;
     border: none;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     color: rgb(231, 231, 231);
@@ -62,6 +62,8 @@
 
 /* Dropzone Styling */
 .dropzone {
+    z-index: 0;
+    position: relative;
     width: 80%;
     margin: 0 auto;
     border: 2px dashed #bbb;
@@ -140,7 +142,8 @@
 }
 
 .dropdown-menu {
-    position: absolute;
+    position: relative;
+    z-index: 1;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
@@ -152,7 +155,7 @@
     max-height: 200px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+
 }
 
 .dropdown-item {
@@ -286,12 +289,12 @@
     font-weight: 600;
     color: #4A32A8;
     font-family: 'Inter', sans-serif;
-    animation: fadeInOut 1.5s ease-in-out infinite;
+    animation: ChangeColor 1.5s ease-in-out infinite;
 }
 
-@keyframes fadeInOut {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+@keyframes ChangeColor {
+    0%, 100% { color:#7F56D9;}
+    50% { color:#4A32A8;}
 }
 
 .results-section {
@@ -346,3 +349,19 @@
     transform: translateY(1px);
 }
 
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply fade-in effect */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}

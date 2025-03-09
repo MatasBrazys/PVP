@@ -1,10 +1,12 @@
-.pricing-page{
-height: 100vh;
+.pricing-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-/* Hero Section */
+
 .plan-hero-container {
     width: 100%;
-    max-width: 1920px;
     height: 500px;
     background: #7F56D9;
     display: flex;
@@ -12,6 +14,7 @@ height: 100vh;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 
 .plan-hero-subtitle {
@@ -90,12 +93,25 @@ height: 100vh;
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 40px;
-    position: relative;
-    z-index: 1;
-    top: -250px;
+    padding: 60px 20px; /* Adds spacing between hero and pricing */
+    position: relative; /* No absolute positioning */
+    z-index: 1; /* Keeps it above background but below other content */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.4s ease-in-out forwards;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    margin-top: -260px;
 }
-
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .pricing-card {
     width: 350px;
     background: white;
@@ -104,17 +120,25 @@ height: 100vh;
     padding: 20px;
     text-align: left;
     position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+.pricing-card:hover{
+    transform: scale(1.03);
+    
 }
 
 .plan-name {
     font-size: 45px;
     font-weight: 600;
     color: #7f56d9;
-    margin-bottom: -30px;
+    margin-bottom: -20px;
 }
 
 .plan-price {
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 600;
     color: black;
 }
@@ -122,6 +146,7 @@ height: 100vh;
 .plan-features {
     list-style: none;
     padding: 0;
+    flex-grow: 1; /* Pushes the button to the bottom */
 }
 
 .plan-features li {
@@ -132,7 +157,184 @@ height: 100vh;
 }
 
 .plan-features li img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px;
 }
+.plan-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Ensures it stays at the bottom */
+    padding-top: 20px;
+    
+}
+
+.plan-button {
+    background-color: #7f56d9;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    width: 100%;
+}
+
+.plan-button:hover {
+    background-color: #6e4abb;
+}
+.plan-divider{
+    width: 95%;
+    size: 5px;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+
+
+/* table */
+.pricing-table-container {
+    text-align: center;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.pricing-container h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #4A32A8;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pricing-table th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.pricing-table th {
+    background-color: #7f56d9;
+    color: white;
+    font-size: 18px;
+}
+
+.pricing-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.pricing-table tr:hover {
+    background-color: #eee;
+}
+
+.plan-table-name {
+    font-weight: bold;
+    color: #4A32A8;
+}
+
+.plan-table-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.pricing-table ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.pricing-table li {
+    padding: 5px 0;
+    font-size: 14px;
+}
+.feature-cell {
+    text-align: center;  /* Centers inline elements like img */
+}
+.feature-text {
+    text-align: center; /* Centers text horizontally */
+    vertical-align: middle; /* Centers text vertically */
+}
+
+
+.feature-cell img {
+    width: 15px;
+    height: 15px;
+    display: inline-block; /* Ensures it respects text-align */
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .plans-table {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .plan-hero-container {
+      height: auto;
+
+    width: 100vw; /* Ensures it takes full viewport width */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Prevents padding from affecting width */
+    }
+  
+    .plan-hero-title {
+      font-size: 36px;
+    }
+  
+    .plan-hero-subtitle {
+      font-size: 20px;
+    }
+  
+    .plan-button-group {
+      max-width: 200px;
+      bottom: 0;
+    }
+  
+    .pricing-container {
+      flex-direction: column;
+      align-items: center;
+      top: 0;
+      margin-top: 0;
+    }
+  
+    .pricing-card {
+      width: 90%;
+      min-height: auto;
+    }
+  
+    .plan-toggle-button {
+      font-size: 18px;
+    }
+    .plan-name {
+        font-size: 36px;
+        font-weight: 600;
+        color: #7f56d9;
+        margin-bottom: -20px;
+    }
+    
+    .plan-price {
+        font-size: 24px;
+        font-weight: 600;
+        color: black;
+    }
+    .plan-features li {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+  }

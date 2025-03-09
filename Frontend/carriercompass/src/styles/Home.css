@@ -295,7 +295,7 @@
     }
   }
   /* ------------------------------------------------------------------------- */
-  .container {
+  .features-container {
     text-align: center;
     padding: 20px;
     max-width: 1200px;
@@ -303,7 +303,7 @@
     
   }
   
-  .container h1 {
+  .features-container h1 {
     color: #7F56D9;
     font-size: 45px;
     font-weight: 800;
@@ -311,59 +311,64 @@
   }
   
   /* Grid Layout */
-  .grid {
+  .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 cards in a row for large screens */
-    gap: 30px; /* Space between cards */
+    gap: 20px; /* Space between cards */
     justify-content: center;
     align-items: center;
     padding: 20px;
   }
   
   /* Card Style */
-  .card {
+  .features-card {
     background: white;
     box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     padding: 20px;
     text-align: center; 
-    max-width: 350px;
+    max-width: 400px;
+    transition: transform 0.3s ease-in-out;
   }
+  .features-card:hover{
+    transform: scale(1.03);
+    
+}
   
-  .card h2 {
+  .features-card h2 {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
   }
   
-  .card p {
+  .features-card p {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.4;
   }
   
   /* Icon Style */
-  .icon {
+  .features-icon {
     font-size: 80px; /* Icon size */
     margin-bottom: 10px;
   }
   
   /* Tablet View - 2 columns */
   @media (max-width: 1024px) {
-    .grid {
+    .features-grid {
       grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
     }
   }
   
   /* Mobile View - 1 column */
   @media (max-width: 600px) {
-    .grid {
+    .features-grid {
       grid-template-columns: repeat(1, 1fr); /* 1 card per row */
 
     }
   }
   @media (max-width: 1200px) {
-    .grid-wrapper {
+    .features-grid-wrapper {
       display: flex;
       justify-content: center;
     }
