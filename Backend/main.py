@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from models import User, Subscription, CV
 from database import SessionLocal
 from passlib.context import CryptContext
+import datetime
 
 
 app = FastAPI()
@@ -46,14 +47,30 @@ def get_db():
 def get_user_by_email(db: Session, email: str):
     return db.query(User).filter(User.email == email).first()
 
+def create_subscription(db: Session):
+
+    db_subscription = Subscription(
+        date_from=datetime.date.today(),
+        date_to=None,
+        subscription='free'
+    )
+    db.add(db_subscription)
+    db.commit()
+    db.refresh(db_subscription)
+    return db_subscription
+
 def create_user(db: Session, user: UserCreate):
+
+    db_subscription = create_subscription(db)
+    
+
     hashed_password = pwd_context.hash(user.password)
     db_user = User(
         name=user.name,
         last_name=user.last_name,
         email=user.email,
         password=hashed_password,
-        fk_Subscription=1  # Nustatykite "free" prenumeratą
+        fk_Subscription=db_subscription.id_Subscription  
     )
     db.add(db_user)
     db.commit()
