@@ -1,46 +1,74 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Depends, status
 import pdfplumber
 import docx
 import os
 import google.generativeai as genai
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
+from models import User, Subscription, CV
+from database import SessionLocal
+from passlib.context import CryptContext
+
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change this to ["http://localhost:3000"] for security
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"]
 )
+
 GEMINI_API_KEY = "AIzaSyDlBLPheUB_o5mKERKqLZKVE-UtYbRkIoM"
 genai.configure(api_key=GEMINI_API_KEY)
 
 
-#Registracijos Backas
-mock_db = []
+#Registracija
 
-class RegisterData(BaseModel):
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+class UserCreate(BaseModel):
     name: str
-    surname: str
+    last_name: str
     email: str
     password: str
 
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+def get_user_by_email(db: Session, email: str):
+    return db.query(User).filter(User.email == email).first()
+
+def create_user(db: Session, user: UserCreate):
+    hashed_password = pwd_context.hash(user.password)
+    db_user = User(
+        name=user.name,
+        last_name=user.last_name,
+        email=user.email,
+        password=hashed_password,
+        fk_Subscription=1  # Nustatykite "free" prenumeratą
+    )
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
 
 @app.post("/register")
-async def register(data: RegisterData):
-
-    if any(user['email'] == data.email for user in mock_db):
+def register_user(user: UserCreate, db: Session = Depends(get_db)):
+    print(user)
+    db_user = get_user_by_email(db, email=user.email)
+    if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
-        
-    mock_db.append(data.dict())
-    return {"message": "Registration successful"}
+    return create_user(db=db, user=user)
 
-@app.get("/users")
-async def get_users():
-    return mock_db
+
 # try:
 #     model = genai.GenerativeModel("gemini-1.5-flash")
 #     response = model.generate_content("Hello! Can you analyze a CV?")
@@ -101,3 +129,4 @@ async def analyze_cv(file: UploadFile = File(...)):
     ai_feedback = analyze_text_with_gemini_free(text)
 
     return {"analysis": ai_feedback}
+

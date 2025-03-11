@@ -10,10 +10,12 @@ const RegisterPage = () => {
 
       const data = {
         name: document.getElementById('name').value,
-        surname: document.getElementById('surname').value,
+        last_name: document.getElementById('surname').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
       };
+
+      console.log(data);
 
       try {
         const response = await fetch('http://127.0.0.1:8000/register', {
