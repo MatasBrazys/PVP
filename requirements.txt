@@ -4,3 +4,6 @@ pdfplumber
 python-docx
 google-generativeai
 python-multipart
+sqlalchemy.orm
+pymysql
+passlib
