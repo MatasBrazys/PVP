@@ -1,6 +1,6 @@
 
 .App{
-  background-color: #F1F1F1;
+  
   font-family: Inter, sans-serif;
  
 }
@@ -8,14 +8,20 @@ html {
   scroll-behavior: smooth;
   
 }
+
 /* * {
   outline: 1px solid red; 
 } */
+body {
+  padding-top: 100px; /* Leaves space for the fixed header */
+}
 html, body {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;
+
+  background-color: #F1F1F1;
 }
 
 .layout {

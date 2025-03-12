@@ -54,7 +54,7 @@ const DragAndDrop = () => {
   };
 
   return (
-    <div className="container">
+    <div className="drag-and-drop-container">
       {isLoading && <div className="fade-in"><LoadingScreen /></div>}
 
       {!isLoading && showResults && (
