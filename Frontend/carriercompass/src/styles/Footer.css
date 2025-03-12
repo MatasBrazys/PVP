@@ -1,15 +1,21 @@
+.logo-container2{
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
 .logo2 {
-    width: 320px;
-    height: 180px;
-    margin-bottom: -20px;
-    align-items: center;
+  width: 200px;
+  height: 120px;
+  
 }
 .footer {
     width: 100%;
     background: #262626;
     color: white;
-    padding-top: 40px;
-    padding-bottom: 40px;
+
     display: flex;
     justify-content: center;
     position: relative; /* Ensures it's placed normally */
@@ -22,28 +28,28 @@
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
   }
   
   .footer-section {
     flex: 1;
     min-width: 300px;
-    margin-bottom: 20px;
   }
 
   
   .footer-title {
     color: #7F56D9;
-    font-size: 24px;
+    font-size: 20px;
     font-family: Inter;
     font-weight: 700;
     margin-bottom: 10px;
   }
   .footer-text-conntact {
-    font-size: 18px;
+    font-size: 16px;
     font-family: Inter;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 15px;
   }
   .footer-text {
     font-size: 18px;
@@ -55,6 +61,7 @@
   .footer-list {
     list-style: none;
     padding: 0;
+    
   }
   
   .footer-list li {
@@ -66,7 +73,7 @@
     color: white;
     font-size: 18px;
     font-weight: 500;
-    line-height: 29px;
+    line-height: 15px;
     transition: color 0.2s ease-in-out;
   }
   
