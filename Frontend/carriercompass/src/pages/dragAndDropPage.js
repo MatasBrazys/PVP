@@ -39,7 +39,7 @@ const DragAndDrop = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/analyze-cv/", formData, {
+      const response = await axios.post("http://127.0.0.1:8000/cv/analyze-cv/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setAnalysis(response.data.analysis);
