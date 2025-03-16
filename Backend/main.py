@@ -1,19 +1,13 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, Depends, status
+from fastapi import FastAPI, File, UploadFile, HTTPException
 import pdfplumber
 import docx
 import os
 import google.generativeai as genai
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from sqlalchemy.orm import Session
-from models import User, Subscription, CV
-from database import SessionLocal
-from passlib.context import CryptContext
-import datetime
-
+from register.router import router as register_router
+from login.router import router as login_router
 
 app = FastAPI()
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,68 +17,11 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+app.include_router(register_router)
+app.include_router(login_router)
+
 GEMINI_API_KEY = "AIzaSyDlBLPheUB_o5mKERKqLZKVE-UtYbRkIoM"
 genai.configure(api_key=GEMINI_API_KEY)
-
-
-#Registracija
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
-class UserCreate(BaseModel):
-    name: str
-    last_name: str
-    email: str
-    password: str
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-def get_user_by_email(db: Session, email: str):
-    return db.query(User).filter(User.email == email).first()
-
-def create_subscription(db: Session):
-
-    db_subscription = Subscription(
-        date_from=datetime.date.today(),
-        date_to=None,
-        subscription='free'
-    )
-    db.add(db_subscription)
-    db.commit()
-    db.refresh(db_subscription)
-    return db_subscription
-
-def create_user(db: Session, user: UserCreate):
-
-    db_subscription = create_subscription(db)
-    
-
-    hashed_password = pwd_context.hash(user.password)
-    db_user = User(
-        name=user.name,
-        last_name=user.last_name,
-        email=user.email,
-        password=hashed_password,
-        fk_Subscription=db_subscription.id_Subscription  
-    )
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return db_user
-
-@app.post("/register")
-def register_user(user: UserCreate, db: Session = Depends(get_db)):
-    print(user)
-    db_user = get_user_by_email(db, email=user.email)
-    if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    return create_user(db=db, user=user)
-
 
 # try:
 #     model = genai.GenerativeModel("gemini-1.5-flash")

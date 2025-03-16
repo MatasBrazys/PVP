@@ -7,6 +7,8 @@ import Copyright from './components/General/copyright';
 import Home from './pages/HomePage';
 import CVDraganddrop from './pages/dragAndDropPage';
 import ToolPlans from './pages/PlanPage';
+import RegisterPage from './components/Register/RegisterPage';
+import LoginPage from './components/Login/LoginPage';
 
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/dragAndDrop" element={<CVDraganddrop />} />
           <Route path="/Plan" element={<ToolPlans />} />
         </Routes>
