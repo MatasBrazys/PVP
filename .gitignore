@@ -5,9 +5,9 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Ignore environment variables
-.env
-.env.local
+# # Ignore environment variables
+# .env
+# .env.local
 
 # Ignore dependency files
 # *.log

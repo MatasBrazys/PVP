@@ -65,14 +65,20 @@
 .dropzone {
     z-index: 0;
     position: relative;
-    width: 80%;
+    max-width: 800px;
     margin: 0 auto;
     border: 2px dashed #bbb;
-    padding: 30px;
+    padding: 100px;
     text-align: center;
     border-radius: 10px;
     cursor: pointer;
     transition: border 0.3s ease-in-out;
+
+    /* Center the dropzone */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .dropzone:hover {
@@ -89,11 +95,13 @@
     font-size: 28px;
     font-weight: 800;
     margin-bottom: -10px;
+    text-align: center;
 }
 
 .dropzone p {
     font-size: 18px;
     color: #555;
+    text-align: center;
 }
 
 .select-file {
@@ -107,11 +115,13 @@
     font-size: 18px;
     font-family: Inter, sans-serif;
     font-weight: 600;
+    text-align: center;
 }
 
 .select-file:hover {
     background-color: #6d48c5;
 }
+
 
 /* Dropdown Menu */
 .custom-dropdown {

@@ -4,7 +4,22 @@ import logo from "../../images/logo CareerCompass.svg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
+
+  // Detect scroll and change background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close the mobile menu when clicking outside
   useEffect(() => {
@@ -24,7 +39,7 @@ const Header = () => {
   }, [menuOpen]);
 
   return (
-    <div className="header-container">
+    <div className={`header-container ${scrolled ? "scrolled" : ""}`}>
       <div className="header">
         <div className="logo-container">
           <a href="/">
