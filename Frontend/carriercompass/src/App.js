@@ -7,6 +7,7 @@ import Copyright from './components/General/copyright';
 import Home from './pages/HomePage';
 import CVDraganddrop from './pages/dragAndDropPage';
 import ToolPlans from './pages/PlanPage';
+import ResultsPage from './pages/ResultsPage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/dragAndDrop" element={<CVDraganddrop />} />
           <Route path="/Plan" element={<ToolPlans />} />
+          <Route path="/results" element={<ResultsPage />} />
         </Routes>
         </div>
         </div>

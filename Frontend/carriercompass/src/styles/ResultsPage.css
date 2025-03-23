@@ -1,0 +1,203 @@
+.result-page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.result-page-sidebar {
+  width: 200px;
+  color: white;
+  padding: 15px;
+  transition: transform 0.3s ;
+  position: fixed;
+  left: 0;
+  top: 100px;
+  bottom: 0; /* Fix sidebar overlapping footer */
+  overflow-y: auto;
+  z-index: 1;
+  transition: background-color 0.5s ease-in-out;
+  box-shadow:   
+  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.result-page-open {
+  transform: translateX(0);
+  background: #ffffff;
+}
+
+.result-page-closed {
+  transform: translateX(-180px);
+  background: #ffffff;
+}
+
+.result-page-main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 200px;
+  transition: margin-left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-page-closed + .result-page-main-content {
+  margin-left: 0;
+}
+
+/* Toggle Button Styling */
+.result-page-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  margin-left: 170px;
+  transition: color 0.3s ease;
+
+}
+
+
+.result-page-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  color: #383838;
+}
+
+.result-page-sidebar nav ul li {
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.result-page-sidebar nav ul li:hover {
+  background: #ebebeb;
+}
+
+/* CV Recommendations Container */
+.cv-recommendations-container {
+  width: 100%;
+  max-width: 1157px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 50px;
+  padding-bottom: 50px;
+  transition: margin-left 0.3s ease;
+}
+
+.cv-recommendations-title {
+  text-align: center;
+  color: #7F56D9;
+  font-size: 38px;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  line-height: 45px;
+  margin-bottom: 20px;
+}
+
+.cv-recommendations-content {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+/* PDF Viewer */
+.pdf-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 665px;
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Recommendation Cards */
+.cv-recommendations-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: 10px;
+}
+
+.cv-recommendation-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 19px;
+  padding: 15px;
+  width: 100%;
+}
+
+.cv-recommendation-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.cv-recommendation-text {
+  color: black;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  /* Sidebar fully collapses */
+  .result-page-toggle-btn  {
+    transition: background-color 0.5s ease-in-out;
+    background-color: white;
+    border-radius: 20px;
+    
+  }
+  .result-page-sidebar {
+    box-shadow: none;
+  }
+  .result-page-open {
+    transform: translateX(0);
+    background: white;
+    box-shadow:   
+  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  .result-page-closed {
+    transform: translateX(-180px);
+    background: transparent;
+
+  }
+  .result-page-main-content {
+    margin-left: 0;
+  }
+
+
+  .cv-recommendations-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 15px; /* Add some padding to avoid touching edges */
+  }
+
+  .cv-recommendations-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cv-recommendations-list {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cv-recommendation-card {
+    width: 90%; /* Slightly smaller than full width to add spacing */
+  }
+}

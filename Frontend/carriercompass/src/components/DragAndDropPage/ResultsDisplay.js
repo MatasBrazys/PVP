@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/PricingPlans.css";
 
 const ResultsDisplay = ({ analysis, onGoBack }) => (
   <div className="results-section">
