@@ -3,7 +3,7 @@ import PlansHeroSection from "../components/PlansPage/Plans";
 import PlansTable from "../components/PlansPage/PlanTable";
 
 
-const HomePage = () => {
+const PlanPage = () => {
   return (
     <div>
       <PlansHeroSection />
@@ -12,4 +12,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default PlanPage;

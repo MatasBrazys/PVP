@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import "../styles/DragAndDrop.css";
 import axios from "axios";
 import LoadingScreen from "../components/DragAndDropPage/LoadingScreen";
-import ResultsSection from "../components/DragAndDropPage/ResultsDisplay"
+
 import JobSelection from "../components/DragAndDropPage/JobSelection";
 import FileUpload from "../components/DragAndDropPage/FileUpload";
 import ToggleButtons from "../components/DragAndDropPage/ToggleButtons";
-import CVRecommendations from "../components/ResultPage/CV-recommendations";
+
 
 const DragAndDrop = () => {
   const navigate = useNavigate(); // Initialize navigate
@@ -31,32 +31,6 @@ const DragAndDrop = () => {
     );
   };
 
-  // const handleSubmit = async () => {
-  //   if (!file) {
-  //     alert("No file selected!");
-  //     return;
-  //   }
-
-  //   const formData = new FormData();
-  //   formData.append("file", file);
-  //   setIsLoading(true);
-
-  //   try {
-  //     const response = await axios.post("http://127.0.0.1:8000/cv/analyze-cv/", formData, {
-  //       headers: { "Content-Type": "multipart/form-data" },
-  //     });
-  //     setAnalysis(response.data.analysis);
-  //     setShowResults(true); // Trigger to show results section
-
-  //     navigate("/results", { state: { fileUrl: URL.createObjectURL(file), analysis: response.data.analysis } }); // Passing both fileUrl and analysis
-
-  //   } catch (error) {
-  //     console.error("Error analyzing CV:", error);
-  //     alert("Failed to analyze CV.");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
   const handleSubmit = async () => {
     if (!file) {
       alert("No file selected!");
@@ -73,6 +47,8 @@ const DragAndDrop = () => {
       });
       setAnalysis(response.data.analysis);
       navigate("/results", { state: { fileUrl: URL.createObjectURL(file), analysis: response.data.analysis } }); // Passing both fileUrl and analysis
+      // navigate("/results", { state: { fileUrl: URL.createObjectURL(file) } });
+
     } catch (error) {
       console.error("Error analyzing CV:", error);
       alert("Failed to analyze CV.");
@@ -86,10 +62,18 @@ const DragAndDrop = () => {
 
   const handleFileChange = (selectedFile) => {
     if (selectedFile) {
-      setFile(selectedFile);
-      setFileUrl(URL.createObjectURL(selectedFile));
+      // Sukuriame FileReader, kad paverstume failą į base64
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64data = reader.result; // base64 koduotas failas
+        setFile(selectedFile);
+        setFileUrl(base64data);
+        localStorage.setItem("fileUrl", base64data); // Išsaugome base64 į localStorage
+      };
+      reader.readAsDataURL(selectedFile); // Paverčiame į base64
     }
   };
+  
 
   const handleRemoveFile = () => {
     setFile(null);

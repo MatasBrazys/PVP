@@ -1,7 +1,7 @@
 import React from "react";
 import { useDropzone } from "react-dropzone";
 
-const FileUpload = ({ file, setFile, removeFile }) => {
+const FileUpload = ({ file, setFile }) => {
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "application/pdf": [".pdf"],
@@ -15,27 +15,24 @@ const FileUpload = ({ file, setFile, removeFile }) => {
       }
     },
   });
-  removeFile = () => {
-    setFile(null);
-  };
+
   return (
     <div>
       <div {...getRootProps()} className="dropzone">
         <input {...getInputProps()} />
-        <img src="https://placehold.co/120x120" alt="Upload Icon" className="upload-icon" />
-        <h2>Drag and Drop Your CV here</h2>
+        
+        {file ? (
+          <h2 className="uploaded-file-name">Selected file: {file.name}</h2>
+        ) : (
+          <>
+            <img src="https://placehold.co/120x120" alt="Upload Icon" className="upload-icon" />
+            <h2>Drag and Drop Your CV here</h2>
+          </>
+        )}
+
         <p>or</p>
-        <button className="select-file">Select file</button>
+        <button className="select-file">{file ? "Change file" : "Select file"}</button>
       </div>
-      {file && (
-        <div className="file-list">
-          <h3>Uploaded file:</h3>
-          <div className="file-item">
-            <span>{file.name}</span>
-            <button onClick={removeFile} className="remove-file">✖</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

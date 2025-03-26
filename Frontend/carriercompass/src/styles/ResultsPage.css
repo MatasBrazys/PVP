@@ -1,46 +1,86 @@
 .result-page-container {
   display: flex;
   min-height: 100vh;
+  justify-content: center;
+  /* Ensures content is centered horizontally */
 }
 
 /* Sidebar Styles */
 .result-page-sidebar {
-  width: 200px;
+  width: 250px;
   color: white;
   padding: 15px;
-  transition: transform 0.3s ;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
   position: fixed;
   left: 0;
   top: 100px;
-  bottom: 0; /* Fix sidebar overlapping footer */
+  bottom: 0;
   overflow-y: auto;
   z-index: 1;
-  transition: background-color 0.5s ease-in-out;
-  box-shadow:   
-  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  background: white;
+  /* Baltas pagal nutylėjimą */
 }
+
+/* Užtikrina, kad piktogramos visada matomos */
+.sidebar-item-content img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Teksto animacija */
+.sidebar-item-content span {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Kai sidebar uždaromas, tekstas palaipsniui išnyksta */
+.result-page-closed .sidebar-item-content span {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Piktogramos pasislinkimas į dešinę */
+.result-page-closed .sidebar-item-content {
+  transform: translateX(216px);
+}
+
+/* Išlaiko piktogramų ir teksto išdėstymą */
+.sidebar-item-content {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
 
 .result-page-open {
   transform: translateX(0);
-  background: #ffffff;
+  background: white;
 }
 
 .result-page-closed {
-  transform: translateX(-180px);
-  background: #ffffff;
+
+  transform: translateX(-232px);
+  background: white;
+  /* Baltas dideliame ekrane */
 }
 
 .result-page-main-content {
   flex: 1;
   padding: 20px;
-  margin-left: 200px;
-  transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-left: 250px;
+  /* Ensures space for the sidebar */
 }
 
-.result-page-closed + .result-page-main-content {
+
+.result-page-closed+.result-page-main-content {
   margin-left: 0;
 }
 
@@ -50,22 +90,21 @@
   border: none;
   font-size: 35px;
   cursor: pointer;
-  margin-left: 170px;
-  transition: color 0.3s ease;
-
+  margin-left: 225px;
 }
-
 
 .result-page-sidebar nav ul {
   list-style: none;
   padding: 0;
   color: #383838;
+  width: 300px;
 }
 
 .result-page-sidebar nav ul li {
   cursor: pointer;
   padding: 10px;
   transition: background-color 0.3s;
+  max-width: 250px;
 }
 
 .result-page-sidebar nav ul li:hover {
@@ -75,22 +114,23 @@
 /* CV Recommendations Container */
 .cv-recommendations-container {
   width: 100%;
-  max-width: 1157px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 50px;
   padding-bottom: 50px;
-  transition: margin-left 0.3s ease;
+  max-width: 1800px;
+  /* Increased max-width for a larger container */
+
 }
+
 
 .cv-recommendations-title {
   text-align: center;
   color: #7F56D9;
   font-size: 38px;
   font-family: Inter, sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 45px;
   margin-bottom: 20px;
 }
@@ -99,20 +139,24 @@
   display: flex;
   position: relative;
   width: 100%;
+  max-width: 1000px;
 }
 
 /* PDF Viewer */
 .pdf-container {
   position: relative;
   width: 100%;
-  max-width: 600px;
-  height: 665px;
+  max-width: 900px;
+  max-height: 690px;
+  margin-bottom: 10px;
+
 }
 
 .pdf-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+
 }
 
 /* Recommendation Cards */
@@ -124,6 +168,26 @@
   width: 100%;
   max-width: 600px;
   margin-left: 10px;
+  max-height: 600px;
+  /* Maksimalus aukštis */
+  overflow-y: auto;
+  /* Leidžia slinkti, jei per daug rekomendacijų */
+  padding-right: 10px;
+  /* Kad tekstas neprisiliestų prie krašto */
+  padding-bottom: 10px;
+}
+
+.cv-recommendations-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cv-recommendations-list::-webkit-scrollbar-thumb {
+  background-color: #7F56D9;
+  border-radius: 4px;
+}
+
+.cv-recommendations-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
 .cv-recommendation-card {
@@ -133,7 +197,7 @@
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 19px;
   padding: 15px;
-  width: 100%;
+
 }
 
 .cv-recommendation-checkbox {
@@ -148,32 +212,28 @@
   font-family: Inter, sans-serif;
   font-weight: 400;
   line-height: 22px;
+  max-width: 550px;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   /* Sidebar fully collapses */
-  .result-page-toggle-btn  {
-    transition: background-color 0.5s ease-in-out;
-    background-color: white;
-    border-radius: 20px;
-    
-  }
+
   .result-page-sidebar {
     box-shadow: none;
   }
+
   .result-page-open {
     transform: translateX(0);
     background: white;
-    box-shadow:   
-  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
-  
-  .result-page-closed {
-    transform: translateX(-180px);
-    background: transparent;
 
+  .result-page-closed {
+    background: transparent;
+    /* Permatomas mažame ekrane */
   }
+
   .result-page-main-content {
     margin-left: 0;
   }
@@ -184,7 +244,7 @@
     justify-content: center;
     text-align: center;
     width: 100%;
-    padding: 0 15px; /* Add some padding to avoid touching edges */
+
   }
 
   .cv-recommendations-content {
@@ -198,6 +258,338 @@
   }
 
   .cv-recommendation-card {
-    width: 90%; /* Slightly smaller than full width to add spacing */
+    width: 90%;
+    /* Slightly smaller than full width to add spacing */
   }
+}
+
+.container-unique {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-unique h1 {
+  color: #7F56D9;
+  font-size: 38px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.job-list-unique {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.job-card-unique {
+  width: 220px;
+  background: white;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+}
+
+.container-unique h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.match-unique {
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.progress-bar-unique {
+  width: 100%;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-unique {
+  height: 100%;
+  background: #7F56D9;
+  border-radius: 50px;
+  transition: width 0.5s ease-in-out;
+}
+
+.description-unique {
+  font-size: 14px;
+  color: #626262;
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .result-page-closed {
+    background: transparent;
+    /* Makes the sidebar disappear */
+  }
+
+  /* Container for icons & button when sidebar is closed */
+  .sidebar-closed-icons {
+    display: flex;
+    flex-direction: column;
+    /* Ensure items are stacked in a column */
+    align-items: center;
+    /* Center items horizontally */
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 2;
+    width: 30px;
+    margin-left: 220px;
+  }
+
+  /* Sidebar icons inside the closed sidebar */
+  .sidebar-icons img {
+    width: 30px;
+    height: 30px;
+    margin: 5px 0;
+    cursor: pointer;
+  }
+
+  /* Hide the regular nav when sidebar is closed */
+  .result-page-closed nav {
+    display: none;
+  }
+
+  /* Style the toggle button inside closed sidebar */
+  .sidebar-closed-icons .result-page-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color: #383838;
+    margin-left: 0;
+  }
+
+}
+
+.job-list-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Centruoja per visą ekraną */
+  width: 100%;
+}
+
+.job-card-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  background: white;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.job-image-custom {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.job-info-custom {
+  flex-grow: 1;
+}
+
+.job-title-custom {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.job-action-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.job-location-custom {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.job-button-custom {
+  display: inline-block;
+  background: #7F56D9;
+  color: white;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.job-button-custom:hover {
+  background: #6b46c1;
+}
+
+.job-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  padding: 40px 20px;
+  box-sizing: border-box;
+  /* Užtikrina, kad padding neperžengtų elemento pločio */
+}
+
+.job-container-title {
+  color: #7F56D9;
+  font-size: 38px;
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-align: center;
+  /* Centruoti tekstą */
+}
+@media (max-width: 768px) {
+  .job-list-custom {
+    gap: 15px;
+
+  }
+
+  .job-card-custom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .job-image-custom {
+    width: 70px;
+    height: 70px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .job-info-custom {
+    width: 100%;
+  }
+
+  .job-title-custom {
+    font-size: 18px;
+  }
+
+  .job-location-custom {
+    font-size: 14px;
+  }
+
+  .job-action-custom {
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .job-button-custom {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+
+  }
+
+
+  .job-container-title {
+    font-size: 32px;
+  }
+}
+
+.learning-results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.learning-results-title {
+  font-size: 38px;
+  font-weight: 800;
+  color: #7F56D9;
+  margin-bottom: 20px;
+}
+
+.learning-cards-wrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.learning-card {
+  width: 220px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers content vertically */
+  height: 100%;
+}
+
+.learning-card-image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.learning-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 50px;
+}
+
+.learning-card-subtitle {
+  font-size: 16px;
+  color: #A9A9A9;
+  margin-bottom: 10px;
+  margin-top: -2px;
+}
+
+.learning-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #7F56D9;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 100%; /* Makes the button take full width */
+  max-width: 150px; /* Ensures the button has a nice size */
+  margin-top: auto;
 }
