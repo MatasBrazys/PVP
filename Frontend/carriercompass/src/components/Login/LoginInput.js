@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/InputField.css';
+import '../../styles/InputField.css';
 
-const InputField = ({ label, type = "text", id, required = true }) => {
+const LoginInput = ({ label, type = "text", id, required = true }) => {
   return (
     <div className="input-container">
       <label htmlFor={id} className="input-label">
@@ -19,4 +19,5 @@ const InputField = ({ label, type = "text", id, required = true }) => {
   );
 };
 
-export default InputField;
+export default LoginInput;
+  
