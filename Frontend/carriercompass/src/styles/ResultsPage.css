@@ -19,7 +19,7 @@
   z-index: 1;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   background: white;
-  /* Baltas pagal nutylėjimą */
+  overflow: hidden;
 }
 
 /* Užtikrina, kad piktogramos visada matomos */
@@ -99,7 +99,7 @@
   list-style: none;
   padding: 0;
   color: #383838;
-  width: 250px;
+  width: 270px;
 }
 
 .result-page-sidebar nav ul li {
