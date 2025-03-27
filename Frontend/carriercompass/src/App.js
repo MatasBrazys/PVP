@@ -11,6 +11,8 @@ import ResultPageLayout from "./pages/LayoutPages/ResultsPage";
 import CVRecommendationsPage from "./pages/ToolPages/CVRecommendationsPage";
 import JobsPage from "./pages/ToolPages/JobsPage";
 import Courses from "./pages/ToolPages/CoursesPage";
+import Login from "./components/Login/LoginPage";
+import Reg from "./components/Register/RegisterPage";
 
 function Layout() {
   const location = useLocation();
@@ -24,6 +26,8 @@ function Layout() {
           <Route path="/" element={<Home />} />
           <Route path="/dragAndDrop" element={<CVDraganddrop />} />
           <Route path="/Plan" element={<ToolPlans />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Reg />} />
           {isResultsPage ? (
             <Route path="/results" element={<ResultPageLayout />}>
               <Route index element={<CVRecommendationsPage />} />

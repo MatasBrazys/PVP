@@ -62,7 +62,7 @@ const Header = () => {
 
         {/* Account Button (Desktop) */}
         <div className="account-button">
-          <a href="#" className="account-button-text">Mano paskyra</a>
+          <a href="/login" className="account-button-text">Mano paskyra</a>
         </div>
 
         {/* Mobile Menu */}
