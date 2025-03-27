@@ -38,13 +38,16 @@ const JobCard = ({ title, match, description }) => {
     <div className="job-card-unique">
       <h2>{title}</h2>
       <p className="match-unique">Atitikimas: {match}%</p>
-      <div className="progress-bar-unique">
-        <div className="progress-unique" style={{ width: `${match}%` }}></div>
+      <div className="progress-container-unique">
+        <div className="progress-bar-unique">
+          <div className="progress-unique" style={{ width: `${match}%` }}></div>
+        </div>
       </div>
       <p className="description-unique">{description}</p>
     </div>
   );
 };
+
 
 export default function JobMatch() {
   return (

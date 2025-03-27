@@ -314,8 +314,8 @@
   }
   
   .step-icon img {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
   }
   
   /* Step Content */
@@ -426,7 +426,7 @@
   /* Grid Layout */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards in a row for large screens */
+    grid-template-columns: repeat(4, 1fr); /* 3 cards in a row for large screens */
     gap: 20px; /* Space between cards */
     justify-content: center;
     align-items: center;
@@ -441,6 +441,7 @@
     padding: 20px;
     text-align: center; 
     max-width: 400px;
+    min-height: 350px;
     transition: transform 0.3s ease-in-out;
   }
   .features-card:hover{
@@ -458,12 +459,31 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 1.4;
+
+    
   }
   
   /* Icon Style */
   .features-icon {
-    font-size: 80px; /* Icon size */
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  .animated-icon {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    stroke: #7F56D9;
+    transition: stroke 0.3s ease-in-out;
+    animation: bounce 1.5s infinite alternate;
+  }
+  
+  .features-card:hover .animated-icon {
+    stroke: #6d48c5;
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+
   }
   
   /* Tablet View - 2 columns */

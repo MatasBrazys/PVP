@@ -133,7 +133,7 @@
 .plan-name {
     font-size: 45px;
     font-weight: 600;
-    color: #7f56d9;
+    color: #7F56D9;
     margin-bottom: -20px;
 }
 
@@ -199,12 +199,18 @@
     margin: 30px auto;
     width: 90%;
     max-width: 1200px;
+    margin-bottom: 50px;
 }
-
-.pricing-container h2 {
-    font-size: 28px;
+.pricing-table-container h2 {
+    font-size: 38px;
     margin-bottom: 15px;
-    color: #4A32A8;
+    color: #7F56D9;
+}
+.pricing-container h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+    font-weight: 800;
+    color: #7F56D9;
 }
 
 .pricing-table {
@@ -237,7 +243,7 @@
 
 .plan-table-name {
     font-weight: bold;
-    color: #4A32A8;
+    color: #7F56D9;
 }
 
 .plan-table-price {

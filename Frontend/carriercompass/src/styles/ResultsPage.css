@@ -34,6 +34,8 @@
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  margin-left: 20px;
+  max-width: 190px;
 }
 
 /* Kai sidebar uždaromas, tekstas palaipsniui išnyksta */
@@ -44,7 +46,7 @@
 
 /* Piktogramos pasislinkimas į dešinę */
 .result-page-closed .sidebar-item-content {
-  transform: translateX(216px);
+  transform: translateX(220px);
 }
 
 /* Išlaiko piktogramų ir teksto išdėstymą */
@@ -292,12 +294,14 @@
   border-radius: 20px;
   padding: 20px;
   text-align: left;
+
 }
 
-.container-unique h2 {
+.job-card-unique  h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 10px;
+  
 }
 
 .match-unique {
@@ -305,8 +309,17 @@
   font-weight: 600;
   color: #555;
   margin-bottom: 10px;
+  min-height: 24px; /* Užtikrina, kad visi „Atitikimas“ tekstai būtų vienodame aukštyje */
+  display: flex;
+  align-items: center;
 }
 
+
+.progress-container-unique {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 .progress-bar-unique {
   width: 100%;
   height: 10px;

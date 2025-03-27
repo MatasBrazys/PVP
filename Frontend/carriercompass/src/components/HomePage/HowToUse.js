@@ -1,30 +1,34 @@
 import React from "react";
 import "../../styles/Home.css";
+import UploadPurple from "../../images/UploadPurple.png";
+import Brains from "../../images/brain-circuit.png";
+import Assessment from "../../images/assessment.png";
+import Job from "../../images/business-growth.png";
 
 const steps = [
     {
       id: 1,
       title: "Įkelkite savo CV",
       description: "Drag-and-drop arba pasirinkite failą, kurį norite analizuoti.",
-      image: "https://placehold.co/120x120",
+      image: UploadPurple,
     },
     {
       id: 2,
       title: "Gaukite personalizuotas rekomendacijas",
       description: "Sistema analizuoja jūsų CV ir pateikia 5 sritis, kuriose galite tobulėti.",
-      image: "https://placehold.co/120x120",
+      image: Brains,
     },
     {
       id: 3,
       title: "Pasirinkite norimą tobulėjimo sritį ar darbą",
       description: "Išsirinkite, kur norite tobulėti – sritį arba pasirinkite dominančią darbo poziciją.",
-      image: "https://placehold.co/120x120",
+      image: Assessment,
     },
     {
       id: 4,
       title: "Atraskite rekomendacijas ir darbo pasiūlymus",
       description: "Sistema pateikia personalizuotas mokymų rekomendacijas (video, užduotys), taip pat darbo skelbimus, atitinkančius jūsų tikslus.",
-      image: "https://placehold.co/120x120",
+      image: Job,
     },
   ];
   
