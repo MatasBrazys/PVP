@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, Date, Enum
 from database import Base
+from typing import Optional
 import datetime
 
 class Subscription(Base):
@@ -27,3 +28,4 @@ class CV(Base):
     name = Column(String)
     file_path = Column(String)
     fk_User = Column(Integer, ForeignKey('user.id_User'))
+

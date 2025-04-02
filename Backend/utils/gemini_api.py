@@ -8,7 +8,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 def analyze_text_with_gemini(text):
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash")
     prompt = (
         "You are a professional career advisor. Analyze this CV and provide feedback on:\n"
         "1. Give keypoints of strenghts and weaknesess.\n"

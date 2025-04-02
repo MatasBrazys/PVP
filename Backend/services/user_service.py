@@ -1,34 +1,15 @@
 from sqlalchemy.orm import Session
-from passlib.context import CryptContext
 import datetime
 from models import User, Subscription
-from register.models import UserCreate
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+from schemas import UserCreate
+from utils.hashing import hash_password
 
 def get_user_by_email(db: Session, email: str):
-    """
-    Get a user by email.
-    
-    Args:
-        db: Database session
-        email: User's email address
-        
-    Returns:
-        User object if found, None otherwise
-    """
+    """Get a user by email."""
     return db.query(User).filter(User.email == email).first()
 
 def create_subscription(db: Session):
-    """
-    Create a new free subscription.
-    
-    Args:
-        db: Database session
-        
-    Returns:
-        Created subscription object
-    """
+    """Create a new free subscription."""
     db_subscription = Subscription(
         date_from=datetime.date.today(),
         date_to=None,
@@ -40,20 +21,9 @@ def create_subscription(db: Session):
     return db_subscription
 
 def create_user(db: Session, user: UserCreate):
-    """
-    Create a new user with a free subscription.
-    
-    Args:
-        db: Database session
-        user: User data
-        
-    Returns:
-        Created user object
-    """
-   
+    """Create a new user with a free subscription."""
     db_subscription = create_subscription(db)
-
-    hashed_password = pwd_context.hash(user.password)
+    hashed_password = hash_password(user.password)
 
     db_user = User(
         name=user.name,
@@ -65,4 +35,4 @@ def create_user(db: Session, user: UserCreate):
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
-    return db_user 
+    return db_user
