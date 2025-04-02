@@ -1,42 +1,45 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import "../../styles/Header.css";
 import logo from "../../images/logo CareerCompass.svg";
+import translations from "../../translations";
+import enFlag from "../../images/flags/en.png";
+import ltFlag from "../../images/flags/lt.png";
+import { LanguageContext } from "../../context/LanguageContext"; // Import context
+
+const flags = { en: enFlag, lt: ltFlag };
 
 const Header = () => {
+  const { language, setLanguage } = useContext(LanguageContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef(null);
+  const dropdownRef = useRef(null);
 
-  // Detect scroll and change background
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close the mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuOpen(false);
       }
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
     };
 
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    setIsDropdownOpen(false);
+  };
 
   return (
     <div className={`header-container ${scrolled ? "scrolled" : ""}`}>
@@ -48,33 +51,74 @@ const Header = () => {
         </div>
 
         {/* Hamburger Menu */}
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="hamburger" onClick={() => setMenuOpen((prev) => !prev)}>
           ☰
         </div>
 
         {/* Navigation Links (Desktop) */}
         <div className="nav-links">
-          <a href="/" className="nav-item">Pagrindinis</a>
-          <a href="/Plan" className="nav-item">Planai</a>
-          <a href="#kontaktai" className="nav-item">Kontaktai</a>
-          <a href="/dragAndDrop" className="nav-item">Tool</a>
+          <a href="/" className="nav-item">{translations[language].home}</a>
+          <a href="/Plan" className="nav-item">{translations[language].plans}</a>
+          <a href="#kontaktai" className="nav-item">{translations[language].contact}</a>
+          <a href="/dragAndDrop" className="nav-item">{translations[language].tool}</a>
         </div>
 
-        {/* Account Button (Desktop) */}
-        <div className="account-button">
-          <a href="/login" className="account-button-text">Mano paskyra</a>
+        {/* Account Button & Language Selector */}
+        <div className="right-container">
+          <div className="account-button">
+            <a href="/login" className="account-button-text">{translations[language].account}</a>
+          </div>
+          <div className="language-dropdown" ref={dropdownRef}>
+            <button
+              className={`language-button ${isDropdownOpen ? "open" : ""}`}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <img src={flags[language]} alt={language} className="flag-icon" />
+              {language.toUpperCase()} <span className="arrow">▼</span>
+            </button>
+            <div className={`language-menu ${isDropdownOpen ? "open" : ""}`}>
+              <div className="language-option" onClick={() => changeLanguage("en")}>
+                <img src={enFlag} alt="English" className="flag-icon" /> EN
+              </div>
+              <div className="language-option" onClick={() => changeLanguage("lt")}>
+                <img src={ltFlag} alt="Lithuanian" className="flag-icon" /> LT
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         <div className={`mobile-menu ${menuOpen ? "open" : ""}`} ref={menuRef}>
-          <a href="/" className="nav-item" onClick={() => setMenuOpen(false)}>Pagrindinis</a>
-          <a href="/Plan" className="nav-item" onClick={() => setMenuOpen(false)}>Planai</a>
-          <a href="#kontaktai" className="nav-item" onClick={() => setMenuOpen(false)}>Kontaktai</a>
-          <a href="/dragAndDrop" className="nav-item" onClick={() => setMenuOpen(false)}>Tool</a>
-          <a href="#" className="nav-item" onClick={() => setMenuOpen(false)}>Mano paskyra</a>
+          <a href="/" className="nav-item" onClick={() => setMenuOpen(false)}>{translations[language].home}</a>
+          <a href="/Plan" className="nav-item" onClick={() => setMenuOpen(false)}>{translations[language].plans}</a>
+          <a href="#kontaktai" className="nav-item" onClick={() => setMenuOpen(false)}>{translations[language].contact}</a>
+          <a href="/dragAndDrop" className="nav-item" onClick={() => setMenuOpen(false)}>{translations[language].tool}</a>
+          <a href="/login" className="nav-item" onClick={() => setMenuOpen(false)}>{translations[language].account}</a>
+
+          <div className="account-button">
+            <a href="/login" className="account-button-text">{translations[language].account}</a>
+          </div>
+          <div className="language-dropdown" ref={dropdownRef}>
+            <button
+              className={`language-button ${isDropdownOpen ? "open" : ""}`}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <img src={flags[language]} alt={language} className="flag-icon" />
+              {language.toUpperCase()} <span className="arrow">▼</span>
+            </button>
+            <div className={`language-menu ${isDropdownOpen ? "open" : ""}`}>
+              <div className="language-option" onClick={() => changeLanguage("en")}>
+                <img src={enFlag} alt="English" className="flag-icon" /> EN
+              </div>
+              <div className="language-option" onClick={() => changeLanguage("lt")}>
+                <img src={ltFlag} alt="Lithuanian" className="flag-icon" /> LT
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

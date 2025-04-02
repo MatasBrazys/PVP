@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import "../../styles/Home.css"; // Ensure CSS is linked
 
 // SVG Animated Icon
@@ -88,40 +90,15 @@ const Card = ({ title, description, icon }) => {
 };
 
 const Features = () => {
-  const services = [
-    {
-      title: "Išmanioji CV analizė",
-      description:
-        "Automatiškai nuskaito ir analizuoja CV turinį (įgūdžius, patirtį, išsilavinimą). Atpažįsta trūkstamus įgūdžius, kurie reikalingi tavo sričiai. Pateikia personalizuotas rekomendacijas CV patobulinimui.",
-      icon: <BrainCircuitIcon />,
-      delay: 0 // No delay for the first card
-    },
-    {
-      title: "Karjeros kelio nustatymas",
-      description:
-        "AI analizuoja tavo CV, kad nustatytų 5 ryškiausias karjeros kryptis. Grafinškai parodo, kurios sritys tau tinkamiausios ir kodėl. Palyginama su rinkos tendencijomis, kad gautum geriausias įsidarbinimo galimybes.",
-      icon: <ChartIcon />,
-      delay: 0.3 // 0.3s delay
-    },
-    {
-      title: "Individualios mokymosi rekomendacijos",
-      description:
-        "AI parenka tau tinkamiausius kursus, video pamokas ir LeetCode užduotis. Siūlomos interaktyvios užduotys, padedančios lavinti trūkstamus įgūdžius. Tikslas - padėti greičiau įgyti darbui reikalingų kompetencijų.",
-      icon: <BooksIcon />,
-      delay: 0.6 // 0.6s delay
-    },
-    {
-      title: "Darbo pasiūlymai pagal tavo profilį",
-      description:
-        "AI palygina tavo įgūdžius su darbų rinkos poreikiais. Pateikia asmeninius darbo pasiūlymus pagal tavo stipriausias sritis. Siūlomi patarimai, kaip pritaikyti savo CV.",
-      icon: <CaseIcon />,
-      delay: 0.9 // 0.9s delay
-    }
-  ];
+  const { language } = useContext(LanguageContext);
+  const services = translations[language].features.map((feature, index) => ({
+    ...feature,
+    icon: [<BrainCircuitIcon />, <ChartIcon />, <BooksIcon />, <CaseIcon />][index], // Assign icons dynamically
+  }));
 
   return (
     <div className="features-container">
-      <h1>Kaip galime padėti?</h1>
+      <h1>{translations[language].featuresTitle}</h1>
       <div className="features-grid-wrapper">
         <div className="features-grid">
           {services.map((service, index) => (

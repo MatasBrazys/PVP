@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import '../../styles/RegisterButton.css';
 
 const RegisterButton = ({ isSubmitting }) => {
+  const { language } = useContext(LanguageContext);
+  const t = translations[language]; // Get translations for the selected language
   return (
     <button
       type="submit"
@@ -9,7 +13,7 @@ const RegisterButton = ({ isSubmitting }) => {
       aria-label="Register account"
       disabled={isSubmitting}
     >
-      {isSubmitting ? 'Registering...' : 'Register'}
+      {isSubmitting ?  t.registering : t.register}
     </button>
   );
 };

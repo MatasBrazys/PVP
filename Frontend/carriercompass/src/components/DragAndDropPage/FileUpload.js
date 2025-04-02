@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDropzone } from "react-dropzone";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 
 const DropIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +17,9 @@ const DropIcon = () => (
 );
 
 const FileUpload = ({ file, setFile }) => {
+  const { language } = useContext(LanguageContext);
+  const t = translations[language] 
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "application/pdf": [".pdf"],
@@ -24,7 +29,7 @@ const FileUpload = ({ file, setFile }) => {
       if (acceptedFiles.length > 0) {
         setFile(acceptedFiles[0]);
       } else {
-        alert("Only PDF and Word documents are allowed.");
+        alert(t.invalidFile);
       }
     },
   });
@@ -35,16 +40,16 @@ const FileUpload = ({ file, setFile }) => {
         <input {...getInputProps()} />
         
         {file ? (
-          <h2 className="uploaded-file-name">Selected file: {file.name}</h2>
+          <h2 className="uploaded-file-name">{t.selectedFile}: {file.name}</h2>
         ) : (
           <>
-            <DropIcon />  {/* <-- Directly render the SVG here */}
-            <h2>Drag and Drop Your CV here</h2>
+            <DropIcon />
+            <h2>{t.dragDrop}</h2>
           </>
         )}
 
-        <p>or</p>
-        <button className="select-file">{file ? "Change file" : "Select file"}</button>
+        <p>{t.or}</p>
+        <button className="select-file">{file ? t.changeFile : t.selectFile}</button>
       </div>
     </div>
   );

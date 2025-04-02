@@ -5,20 +5,21 @@
 }
 
 .input-label {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: black;
   margin-bottom: 10px;
 }
 
 .input-field {
-  height: 50px;
+  height: 30px;
   width: 100%;
   background-color: #d4d4d4;
   border-radius: 5px;
   padding: 10px;
   outline: none;
   border: none;
+  font-size: 1.2rem;
 }
 
 .input-error {

@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import '../../styles/LoginButton.css';
 import { Link } from 'react-router-dom';
 
 const LoginButton = () => {
+  const { language } = useContext(LanguageContext);
+  const t = translations[language]; // Get translations for the selected language
   return (
     <div className="login-actions">
       <Link to="/register" className="register-link">
-        New Here? Register
+        {t.regRedir}
       </Link>
       
       <button
@@ -14,7 +18,7 @@ const LoginButton = () => {
         className="login-button"
         aria-label="Login to account"
       >
-        Sign In
+       {t.signIn}
       </button>
       
       <Link 
@@ -25,7 +29,7 @@ const LoginButton = () => {
           alert('Password reset functionality coming soon');
         }}
       >
-        Forgot Password
+        {t.forgotPass}
       </Link>
     </div>
   );

@@ -27,6 +27,7 @@
   width: 30px;
   height: 30px;
   margin-right: 10px;
+
 }
 
 /* Teksto animacija */
@@ -34,8 +35,9 @@
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  margin-left: 20px;
+  margin-left: 50px;
   max-width: 190px;
+  
 }
 
 /* Kai sidebar uždaromas, tekstas palaipsniui išnyksta */
@@ -53,7 +55,16 @@
 .sidebar-item-content {
   display: flex;
   align-items: center;
+
   transition: transform 0.3s ease-in-out;
+}
+.sidebar-icons  {
+  width: 30px;
+  height: 30px;
+  margin: 5px 0;
+  cursor: pointer;
+  margin-right: -30px;
+  margin-left: 15px;
 }
 
 
@@ -93,25 +104,38 @@
   font-size: 35px;
   cursor: pointer;
   margin-left: 225px;
+  
 }
 
 .result-page-sidebar nav ul {
   list-style: none;
   padding: 0;
   color: #383838;
+  
   width: 270px;
 }
 
-.result-page-sidebar nav ul li {
-  cursor: pointer;
+.result-page-sidebar nav ul li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
   padding: 10px;
-  transition: background-color 0.3s;
-  max-width: 250px;
+
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.result-page-sidebar nav ul li:hover {
-  background: #ebebeb;
+.result-page-sidebar nav ul li a.active {
+  background: #7F56D9; /* Highlighted background */
+  color: white;
+  font-weight: bold; /* Make text bold when active */
+  border-radius: 8px;
 }
+.result-page-sidebar li {
+  margin-left: -20px;
+}
+
 
 /* CV Recommendations Container */
 .cv-recommendations-container {
@@ -285,6 +309,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+
 }
 
 .job-card-unique {
@@ -297,11 +322,11 @@
 
 }
 
-.job-card-unique  h2 {
+.job-card-unique h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 10px;
-  
+
 }
 
 .match-unique {
@@ -309,7 +334,8 @@
   font-weight: 600;
   color: #555;
   margin-bottom: 10px;
-  min-height: 24px; /* Užtikrina, kad visi „Atitikimas“ tekstai būtų vienodame aukštyje */
+  min-height: 24px;
+  /* Užtikrina, kad visi „Atitikimas“ tekstai būtų vienodame aukštyje */
   display: flex;
   align-items: center;
 }
@@ -320,6 +346,7 @@
   align-items: center;
   width: 100%;
 }
+
 .progress-bar-unique {
   width: 100%;
   height: 10px;
@@ -367,13 +394,7 @@
     margin-left: 220px;
   }
 
-  /* Sidebar icons inside the closed sidebar */
-  .sidebar-icons img {
-    width: 30px;
-    height: 30px;
-    margin: 5px 0;
-    cursor: pointer;
-  }
+
 
   /* Hide the regular nav when sidebar is closed */
   .result-page-closed nav {
@@ -402,6 +423,7 @@
   margin: 0 auto;
   /* Centruoja per visą ekraną */
   width: 100%;
+
 }
 
 .job-card-custom {
@@ -409,16 +431,27 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-
+  text-decoration: none;
   background: white;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   padding: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* Smooth background color and transform */
+  box-sizing: border-box;
 }
 
+.job-card-custom:hover {
+  background: #ebebff;
+  /* Apply the background color on hover */
+  transform: scale(1.02);
+  /* Slightly scale the card on hover */
+}
+
+
 .job-image-custom {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 20px;
@@ -429,9 +462,15 @@
 }
 
 .job-title-custom {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #333;
+}
+
+.job-company-custom {
+  font-size: 18px;
+  color: #6e6e6e;
+  font-weight: 800;
 }
 
 .job-action-custom {
@@ -441,25 +480,24 @@
 }
 
 .job-location-custom {
-  font-size: 16px;
+  font-size: 24px;
   color: #666;
+  font-weight: 600;
   margin-bottom: 10px;
 }
 
-.job-button-custom {
+.job-salary-custom {
   display: inline-block;
   background: #7F56D9;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px 15px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
 }
 
-.job-button-custom:hover {
-  background: #6b46c1;
-}
+
 
 .job-container {
   display: flex;
@@ -481,23 +519,19 @@
   text-align: center;
   /* Centruoti tekstą */
 }
+
 @media (max-width: 768px) {
   .job-list-custom {
     gap: 15px;
 
   }
 
-  .job-card-custom {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 
-  }
 
   .job-image-custom {
     width: 70px;
     height: 70px;
-    margin-right: 0;
+
     margin-bottom: 10px;
   }
 
@@ -510,7 +544,7 @@
   }
 
   .job-location-custom {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .job-action-custom {
@@ -518,11 +552,8 @@
     margin-top: 10px;
   }
 
-  .job-button-custom {
-    width: 100%;
-    max-width: 200px;
-    text-align: center;
-
+  .job-salary-custom {
+    font-size: 16px;
   }
 
 
@@ -564,7 +595,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centers content vertically */
+  justify-content: center;
+  /* Centers content vertically */
   height: 100%;
 }
 
@@ -602,7 +634,9 @@
   padding: 8px 16px;
   border-radius: 8px;
   font-weight: bold;
-  width: 100%; /* Makes the button take full width */
-  max-width: 150px; /* Ensures the button has a nice size */
+  width: 100%;
+  /* Makes the button take full width */
+  max-width: 150px;
+  /* Ensures the button has a nice size */
   margin-top: auto;
 }

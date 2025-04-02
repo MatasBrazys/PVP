@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import '../../styles/Home.css';
 
 const BottomHeader = () => {
+    const { language } = useContext(LanguageContext);
   return (
     <div className="bottom-header-container">
       <div className="bottom-header-header-text">
-        Ženk žingsnį į priekį – tapk geriausia savo versija su mūsų pagalba
+        {translations[language].bottomHeaderText}
       </div>
       <div className="bottom-header-button-container">
-        <button className="bottom-header-button">Pabandyk dabar</button>
+        <button className="bottom-header-button">{translations[language].heroButton}</button>
       </div>
     </div>
   );

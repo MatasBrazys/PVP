@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
+import translations from "../translations";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import "../styles/DragAndDrop.css";
 import axios from "axios";
@@ -10,6 +12,8 @@ import ToggleButtons from "../components/DragAndDropPage/ToggleButtons";
 
 
 const DragAndDrop = () => {
+  const { language } = useContext(LanguageContext);
+  const t = translations[language] 
   const navigate = useNavigate(); // Initialize navigate
   const [selectedJobs, setSelectedJobs] = useState([]);
   const [file, setFile] = useState(null);
@@ -110,7 +114,7 @@ const DragAndDrop = () => {
           </div>
 
           <button className="submit-button fade-in" onClick={handleSubmit} disabled={!file}>
-            Submit
+            {t.Submit}
           </button>
         </>
       )}

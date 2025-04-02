@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import "../../styles/ResultsPage.css";
 const jobs = [
   {
@@ -34,10 +36,12 @@ const jobs = [
 ];
 
 const JobCard = ({ title, match, description }) => {
+  const { language } = useContext(LanguageContext);
+  const t = translations[language]; // Get translations for the selected language
   return (
     <div className="job-card-unique">
       <h2>{title}</h2>
-      <p className="match-unique">Atitikimas: {match}%</p>
+      <p className="match-unique">{t.Matching}: {match}%</p>
       <div className="progress-container-unique">
         <div className="progress-bar-unique">
           <div className="progress-unique" style={{ width: `${match}%` }}></div>
@@ -50,9 +54,11 @@ const JobCard = ({ title, match, description }) => {
 
 
 export default function JobMatch() {
+  const { language } = useContext(LanguageContext);
+  const t = translations[language]; // Get translations for the selected language
   return (
     <div className="container-unique">
-      <h1>Top 5 tinkamiausios darbo sritys</h1>
+      <h1>{t.top5JobsTitle}</h1>
       <div className="job-list-unique">
         {jobs.map((job, index) => (
           <JobCard key={index} {...job} />

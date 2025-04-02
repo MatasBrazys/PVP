@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../styles/Footer.css";
 import logo2 from "../../images/logo CareerCompass white.svg";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 
 const Footer = () => {
+      const { language } = useContext(LanguageContext);
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -15,20 +18,20 @@ const Footer = () => {
 
         {/* Pagalba Section */}
         <div className="footer-section">
-          <div className="footer-title">Pagalba</div>
+          <div className="footer-title">{translations[language].help}</div>
           <ul className="footer-list">
-            <li><a href="#">Planai</a></li>
-            <li><a href="#">Privatumo politika</a></li>
-            <li><a href="#">Slapukų politika</a></li>
+            <li><a href="/Plan">{translations[language].plans}</a></li>
+            <li><a href="#">{translations[language].privacyPolicy}</a></li>
+            <li><a href="#">{translations[language].cookiesPolicy}</a></li>
           </ul>
         </div>
 
         {/* Kontaktai Section */}
         <div className="footer-section"id="kontaktai">
-          <div className="footer-title">Kontaktai</div>
-          <p className="footer-text-conntact"><strong>Adresas:</strong> Laisvės al. 12, Kaunas</p>
-          <p className="footer-text-conntact"><strong>Telefonas:</strong> +370 612 34567</p>
-          <p className="footer-text-conntact"><strong>El. paštas:</strong> info@puslapis.lt</p>
+          <div className="footer-title">{translations[language].contact}</div>
+          <p className="footer-text-conntact"><strong>{translations[language].address}:</strong> Laisvės al. 12, Kaunas</p>
+          <p className="footer-text-conntact"><strong>{translations[language].phoneNumber}:</strong> +370 612 34567</p>
+          <p className="footer-text-conntact"><strong>{translations[language].email}:</strong> info@puslapis.lt</p>
         </div>
       </div>
     </footer>

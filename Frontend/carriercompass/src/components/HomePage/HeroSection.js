@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useContext,useEffect } from "react";
 import "../../styles/Home.css";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
+
 
 const HeroSection = () => {
+  const { language } = useContext(LanguageContext);
   useEffect(() => {
     const particles = document.querySelector(".particles");
     for (let i = 0; i < 30; i++) {
@@ -21,9 +25,9 @@ const HeroSection = () => {
       <div className="particles"></div>
 
       <div className="hero-content">
-        <h1>Paversk savo įgūdžius pranašumu – tobulink savo CV ir atrask savo potencialą.</h1>
-        <p>Gauk personalizuotas rekomendacijas, testus ir darbo pasiūlymus</p>
-        <button className="hero-button">Pabandyk dabar</button>
+        <h1>{translations[language].heroTitle}</h1>
+        <p>{translations[language].heroDescription}</p>
+        <button className="hero-button">{translations[language].heroButton}</button>
       </div>
 
       {/* Right Side 3D Animated CV Document */}

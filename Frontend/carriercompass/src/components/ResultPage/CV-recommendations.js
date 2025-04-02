@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import "../../styles/ResultsPage.css";
 
 const recommendations = [
@@ -12,7 +14,8 @@ const recommendations = [
 
 const CVRecommendations = ({ fileUrl }) => {
   const [cvUrl, setCvUrl] = useState(localStorage.getItem("cvUrl") || fileUrl);
-
+  const { language } = useContext(LanguageContext);
+  const t = translations[language]; // Get translations for the selected language
   useEffect(() => {
     if (fileUrl) {
       localStorage.setItem("cvUrl", fileUrl);
@@ -22,7 +25,7 @@ const CVRecommendations = ({ fileUrl }) => {
 
   return (
     <div className="cv-recommendations-container">
-      <h1 className="cv-recommendations-title">CV tobulinimo rekomendacijos</h1>
+      <h1 className="cv-recommendations-title"> {t.CVRecommendationsTitle}</h1>
       <div className="cv-recommendations-content">
         {cvUrl ? (
           <div className="pdf-container">

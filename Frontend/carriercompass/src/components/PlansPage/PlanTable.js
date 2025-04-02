@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import "../../styles/PricingPlans.css";
-import checkIcon from "../../images/check.png"; // Replace with your actual path
-import crossIcon from "../../images/minus.png"; // Replace with your actual path
+import checkIcon from "../../images/check.png";
+import crossIcon from "../../images/minus.png";
 
-const plans = [
+const plansTable = [
     {
-        name: "Free",
-        use: "2",
-        features: {
+        planName: "Free",
+        planUse: "2",
+        tablefeatures: {
             "Pagrindinė CV analizė": true,
             "Išplėstinės CV analizės": false,
             "Bendros rekomendacijos": true,
@@ -17,9 +19,9 @@ const plans = [
         },
     },
     {
-        name: "Basic",
-        use: "20",
-        features: {
+        planName: "Basic",
+        planUse: "20",
+        tablefeatures: {
             "Pagrindinė CV analizė": true,
             "Išplėstinės CV analizės": true,
             "Bendros rekomendacijos": true,
@@ -29,9 +31,9 @@ const plans = [
         },
     },
     {
-        name: "Pro",
-        use: "Neribotas",
-        features: {
+        planName: "Pro",
+        planUse: "Neribotas",
+        tablefeatures: {
             "Pagrindinė CV analizė": true,
             "Išplėstinės CV analizės": true,
             "Bendros rekomendacijos": true,
@@ -43,35 +45,39 @@ const plans = [
 ];
 
 const PricingTable = () => {
-    const allFeatures = Object.keys(plans[0].features);
+    const { language } = useContext(LanguageContext);
+    const t = translations[language]; // Get translations for the selected language
+
+    const allFeatures = Object.keys(plansTable[0].tablefeatures);
 
     return (
         <div className="pricing-table-container">
-            <h2>Pagrinidnės funkcijos</h2>
+            <h2>{t.featuresTableTitle}</h2>
             <table className="pricing-table">
                 <thead>
                     <tr>
-                        <th>Funkcijos</th>
-                        {plans.map((plan, index) => (
-                            <th key={index}>{plan.name} </th>
+                        <th>{t.usagePerMonth}</th>
+                        {plansTable.map((plan, index) => (
+                            <th key={index}>{plan.planName}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    
-                        <td> Panaudojimai per mėnesį </td>
-                        {plans.map((plan, index) => (
-                            <td className="feature-text" key={index}>{plan.use} </td>
+                    <tr>
+                        <td>{t.usagePerMonth}</td>
+                        {plansTable.map((plan, index) => (
+                            <td className="feature-text" key={index}>
+                                {plan.planUse === "Neribotas" ? t.unlimited : plan.planUse}
+                            </td>
                         ))}
-                    
+                    </tr>
+
                     {allFeatures.map((feature, index) => (
-
                         <tr key={index}>
-                            <td>{feature}</td>
-                            {plans.map((plan, i) => (
-
+                            <td>{t.featuresTable[feature] || feature}</td>
+                            {plansTable.map((plan, i) => (
                                 <td key={i} className="feature-cell">
-                                    <img src={plan.features[feature] ? checkIcon : crossIcon} alt={plan.features[feature] ? "✔" : "❌"} />
+                                    <img src={plan.tablefeatures[feature] ? checkIcon : crossIcon} alt={plan.tablefeatures[feature] ? "✔" : "❌"} />
                                 </td>
                             ))}
                         </tr>
@@ -81,5 +87,6 @@ const PricingTable = () => {
         </div>
     );
 };
+
 
 export default PricingTable;

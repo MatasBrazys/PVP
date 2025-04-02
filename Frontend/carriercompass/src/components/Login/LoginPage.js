@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import '../../styles/LoginPage.css';
 import LoginInput from './LoginInput';
 import LoginButton from './LoginButton';
@@ -8,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { language } = useContext(LanguageContext);
+  const t = translations[language]; // Get translations for the selected language
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,11 +70,11 @@ const LoginPage = () => {
           
           <section className="form-section">
             <div className="input-wrapper">
-              <LoginInput label="Email" type="email" id="email" />
+              <LoginInput label={t.email} type="email" id="email" />
             </div>
 
             <div className="input-wrapper">
-              <LoginInput label="Password" type="password" id="password" />
+              <LoginInput label={t.password} type="password" id="password" />
             </div>
           </section>
 

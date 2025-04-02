@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./styles/App.css";
+import { LanguageProvider } from "./context/LanguageContext";
 import Header from "./components/General/Header";
 import Footer from "./components/General/footer";
 import Copyright from "./components/General/copyright";
@@ -46,9 +47,11 @@ function Layout() {
 
 function App() {
   return (
-    <Router>
-      <Layout />
-    </Router>
+    <LanguageProvider> {/* Move LanguageProvider outside of Router */}
+      <Router>
+        <Layout />
+      </Router>
+    </LanguageProvider>
   );
 }
 

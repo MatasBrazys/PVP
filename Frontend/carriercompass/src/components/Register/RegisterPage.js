@@ -1,4 +1,6 @@
-import React, { useState } from 'react';  
+import React, { useState, useContext } from 'react';
+import { LanguageContext } from "../../context/LanguageContext";
+import translations from "../../translations";
 import { useNavigate } from 'react-router-dom';
 import '../../styles/RegisterPage.css';
 import InputField from './InputField';
@@ -9,6 +11,8 @@ const RegisterPage = () => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
+    const { language } = useContext(LanguageContext);
+    const t = translations[language]; // Get translations for the selected language
 
     const validateForm = (data) => {
       const newErrors = {};
@@ -108,7 +112,7 @@ const RegisterPage = () => {
             <section className="form-section">
               <div className="input-wrapper">
                 <InputField 
-                  label="Name" 
+                  label={t.userName} 
                   id="name" 
                   error={errors.name}
                 />
@@ -116,7 +120,7 @@ const RegisterPage = () => {
   
               <div className="input-wrapper">
                 <InputField 
-                  label="Surname" 
+                  label={t.surname} 
                   id="surname" 
                   error={errors.surname}
                 />
@@ -124,7 +128,7 @@ const RegisterPage = () => {
   
               <div className="input-wrapper">
                 <InputField 
-                  label="Email" 
+                  label={t.email} 
                   type="email" 
                   id="email" 
                   error={errors.email}
@@ -133,7 +137,7 @@ const RegisterPage = () => {
   
               <div className="input-wrapper">
                 <InputField 
-                  label="Password" 
+                  label={t.password} 
                   type="password" 
                   id="password" 
                   error={errors.password}
