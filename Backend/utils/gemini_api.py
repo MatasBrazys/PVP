@@ -11,10 +11,10 @@ def analyze_text_with_gemini(text):
     model = genai.GenerativeModel("gemini-1.5-flash")
     prompt = (
         "You are a professional career advisor. Analyze this CV and provide feedback on:\n"
-        "1. Strengths and weaknesses.\n"
-        "2. Missing skills.\n"
-        "3. Career improvement suggestions.\n"
-        "4. Industry recommendations based on experience.\n\n"
+        "1. Give keypoints of strenghts and weaknesess.\n"
+        "2. Point out ares where you can impove CV.\n"
+        "3. Suggest jobs for this person.\n\n"
+        
         f"Here is the CV content:\n{text}"
     )
     response = model.generate_content(prompt)
