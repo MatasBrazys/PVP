@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from models import User
 from utils.hashing import verify_password
 from utils.jwt_helper import decode_jwt
-from schemas import TokenData
+
 
 def get_user_by_email(db: Session, email: str):
     """Get a user by email."""

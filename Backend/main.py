@@ -16,4 +16,5 @@ app.add_middleware(
 
 app.include_router(cv_analysis.router, prefix="/cv", tags=["CV Analysis"])
 app.include_router(login.router, prefix="/user", tags=["Login"])
-app.include_router(register.router, prefix="/aha", tags=["Register"])
+app.include_router(register.router, prefix="/user", tags=["Register"])
+

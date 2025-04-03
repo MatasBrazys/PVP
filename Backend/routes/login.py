@@ -29,7 +29,7 @@ def login_for_access_token(user_data: UserLogin, db: Session = Depends(get_db)):
 
 @router.get("/verify-token/{token}", summary="Verify token via URL with detailed information")
 def verify_token(token: str, db: Session = Depends(get_db)):
-    """Easiest way to verify a token - just paste it in the URL."""
+    """Verify token via URL with detailed information."""
     
     response = {
         "token_valid": False,
@@ -37,11 +37,15 @@ def verify_token(token: str, db: Session = Depends(get_db)):
         "user_info": None,
         "error": None
     }
-
+    
+    # Attempt to decode the JWT token
     payload = decode_jwt(token)
     if not payload:
         response["error"] = "Invalid token format"
-        return response
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=response["error"]
+        )
 
     email = payload.get("sub")
     user_id = payload.get("user_id")
@@ -74,7 +78,16 @@ def verify_token(token: str, db: Session = Depends(get_db)):
             }
         else:
             response["error"] = "User not found in database"
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=response["error"]
+            )
     else:
         response["error"] = "Token is expired" if is_expired else "Invalid token payload"
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=response["error"]
+        )
 
     return response
+
