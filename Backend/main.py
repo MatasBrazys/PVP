@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import cv_analysis, login, register
+from routes import cv_analysis, login, register, profile
 
 app = FastAPI()
 
@@ -17,4 +17,5 @@ app.add_middleware(
 app.include_router(cv_analysis.router, prefix="/cv", tags=["CV Analysis"])
 app.include_router(login.router, prefix="/user", tags=["Login"])
 app.include_router(register.router, prefix="/user", tags=["Register"])
+app.include_router(profile.router, prefix="/user", tags=["Get user"])
 

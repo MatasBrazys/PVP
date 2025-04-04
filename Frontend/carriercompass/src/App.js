@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "./styles/App.css";
 import { LanguageProvider } from "./context/LanguageContext";
@@ -18,7 +19,34 @@ import Reg from "./components/Register/RegisterPage";
 function Layout() {
   const location = useLocation();
   const isResultsPage = location.pathname.startsWith("/results");
+  const navigate = useNavigate();
 
+  useEffect(()=>{
+      const verifyToken = async () =>{
+           const token = localStorage.getItem('token');
+              console.log("Token from localStorage:",token)
+          
+              if (!token) {
+                // If no token, redirect immediately
+                navigate('/login');
+                return;
+              }
+              
+          try{
+              const response = await fetch(`http://localhost:8000/user/verify-token/${token}`);
+              console.log("a:", response)
+              if(!response.ok){
+                  throw new Error('Token verification failed');
+
+              }
+              
+          }catch(error){
+              localStorage.removeItem('token');
+              navigate('/login');   
+          }
+      };
+      verifyToken();
+  }, [navigate]);
   return (
     <div className={`App ${isResultsPage ? "with-sidebar" : ""}`}>
       <Header />
