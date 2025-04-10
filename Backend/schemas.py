@@ -28,3 +28,13 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True 
+from pydantic import BaseModel
+
+class UserUpdateRequest(BaseModel):
+    token: str
+    name: str
+    last_name: str
+    email: str
+    current_password: Optional[str] = None
+    new_password: Optional[str] = None
+    repeat_password: Optional[str] = None

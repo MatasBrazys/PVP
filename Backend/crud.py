@@ -6,6 +6,9 @@ import datetime
 def get_user_by_email(db: Session, email: str):
     return db.query(User).filter(User.email == email).first()
 
+def get_user_subscription(db: Session, email: str):
+    return db.query(Subscription).filter(Subscription.id_Subscription == User.fk_Subscription).first()
+
 def create_subscription(db: Session):
     db_subscription = Subscription(
         date_from=datetime.date.today(),

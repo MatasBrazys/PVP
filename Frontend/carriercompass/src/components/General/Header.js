@@ -66,7 +66,7 @@ const Header = () => {
         {/* Account Button & Language Selector */}
         <div className="right-container">
           <div className="account-button">
-            <a href="/login" className="account-button-text">{translations[language].account}</a>
+            <a href="/profile/user-data" className="account-button-text">{translations[language].account}</a>
           </div>
           <div className="language-dropdown" ref={dropdownRef}>
             <button

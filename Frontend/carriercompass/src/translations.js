@@ -165,30 +165,52 @@ const translations = {
     selectITJob: "Select IT Job",
     general: "General Analysis",
     Submit: "Submit",
-  // ---------Loading---------------------------------------------------
+    // ---------Loading---------------------------------------------------
     loadingMessage: "It will take a moment, CV is being processed...",
     // ---------CV-recommendations----------------------------------------
-    CVRecommendationsTitle:"Recommendations for CV development",
+    CVRecommendationsTitle: "Recommendations for CV development",
     // ---------top5Jobs-----------------------------------------------
-    top5JobsTitle:"Top 5 most suitable job areas",
-    Matching:"Matching",
+    top5JobsTitle: "Top 5 most suitable job areas",
+    Matching: "Matching",
     // ---------JobListings-----------------------------------------------
-    results:"Results",
-     // ---------courses-----------------------------------------------
-    courseRecommendationsTitle:"Courses Recommendations",
-    view:"View",
+    results: "Results",
+    // ---------courses-----------------------------------------------
+    courseRecommendationsTitle: "Courses Recommendations",
+    view: "View",
     // ---------Resultpage-----------------------------------------------
-    jobNavTitle:"Job areas and job offers for you",
+    jobNavTitle: "Job areas and job offers for you",
     // ---------Login-----------------------------------------------
-    password:"Password",
-    signIn:"Sign In",
-    regRedir:"New Here? Register",
-    forgotPass:"Forgot Password",
-        // ---------Register-----------------------------------------------
-        surname:"Surname",
-        userName:"Name",
-        register:"Register",
-         registering:"Registering...",
+    password: "Password",
+    signIn: "Sign In",
+    regRedir: "New Here? Register",
+    forgotPass: "Forgot Password",
+    // ---------Register-----------------------------------------------
+    surname: "Surname",
+    userName: "Name",
+    register: "Register",
+    registering: "Registering...",
+    // ---------ProfileDataCard-----------------------------------------------
+    personalInfoTitle: "Personal Information",
+    editButton: "Edit",
+    creditsTitle: "Credits Left",
+
+    // ---------CreditsAmountCard-----------------------------------------------
+    getPlanButton: "Get Plan",
+    creditText1: "You have",
+    creditText2: "Credits",
+    // ---------ProfileEditForm-----------------------------------------------
+    editTitle: "Edit Personal Information",
+    editChangePasswordTitle: "Change Password",
+    editCurrentPassword: "Current Password",
+    editNewPassword: "New Password",
+    editRepeatNewPassword: "Repeat New Password",
+    saving: "Saving...",
+    saveChanges: "Save Changes",
+    // ---------ProfilePageLayout-----------------------------------------------
+    navTitle: "Profile",
+    myData: "My details",
+    editProfile: "Edit Profile",
+    payments: "Payments",
   },
 
 
@@ -361,34 +383,53 @@ const translations = {
     selectITJob: "Pasirinkti IT darbą",
     general: "Bendrė analizė",
     Submit: "Pateikti",
-    
-      // ---------Loading---------------------------------------------------
-      loadingMessage: "Tai užtruks keletą sekundžių, CV yra apdorojamas...",
-      // ---------CV-recommendations----------------------------------------
-      CVRecommendationsTitle:"CV tobulinimo rekomendacijos",
-    // ---------top5Jobs-----------------------------------------------
-    top5JobsTitle:"Top 5 tinkamiausios darbo sritys areas",
-    Matching:"Atitikimas",
-    // ---------JobListings-----------------------------------------------
-    results:"Rezultatai",
-     // ---------courses-----------------------------------------------
-     courseRecommendationsTitle:"Kursų rekomendacijos",
-     view:"Peržiūrėti",
-// ---------Resultpage-----------------------------------------------
-     jobNavTitle:"Darbo sritys ir darbo pasiūlymai tau",
-    // ---------Login-----------------------------------------------
-    password:"Slaptažodis",
-    signIn:"Prisijungti",
-    regRedir:"Dar neturi paskyros? Registruokis čia",
-    forgotPass:"Pamiršote slaptažodį?",
-         // ---------Register-----------------------------------------------
-         surname:"Pavardė",
-         userName:"Vardas",
-         register:"Registruotis",
-         registering:"Registruojama..",
-    
-  },
 
+    // ---------Loading---------------------------------------------------
+    loadingMessage: "Tai užtruks keletą sekundžių, CV yra apdorojamas...",
+    // ---------CV-recommendations----------------------------------------
+    CVRecommendationsTitle: "CV tobulinimo rekomendacijos",
+    // ---------top5Jobs-----------------------------------------------
+    top5JobsTitle: "Top 5 tinkamiausios darbo sritys areas",
+    Matching: "Atitikimas",
+    // ---------JobListings-----------------------------------------------
+    results: "Rezultatai",
+    // ---------courses-----------------------------------------------
+    courseRecommendationsTitle: "Kursų rekomendacijos",
+    view: "Peržiūrėti",
+    // ---------Resultpage-----------------------------------------------
+    jobNavTitle: "Darbo sritys ir darbo pasiūlymai tau",
+    // ---------Login-----------------------------------------------
+    password: "Slaptažodis",
+    signIn: "Prisijungti",
+    regRedir: "Dar neturi paskyros? Registruokis čia",
+    forgotPass: "Pamiršote slaptažodį?",
+    // ---------Register-----------------------------------------------
+    surname: "Pavardė",
+    userName: "Vardas",
+    register: "Registruotis",
+    registering: "Registruojama..",
+    // ---------ProfilePage-----------------------------------------------
+    personalInfoTitle: "Asmeninė informacija",
+    editButton: "Redaguoti",
+    creditsTitle: "Kreditų likutis",
+    // ---------CreditsAmountCard-----------------------------------------------
+    getPlanButton: "Įsigykite planą",
+    creditText1: "Jūs turite",
+    creditText2: "Kreditų",
+    // ---------ProfileEditForm-----------------------------------------------
+    editTitle: "Redaguoti asmeninę informaciją",
+    editChangePasswordTitle: "Keisti slaptažodį",
+    editCurrentPassword: "Dabartinis slaptažodis",
+    editNewPassword: "Naujas slaptažodis",
+    editRepeatNewPassword: "Pakartokite naują slaptažodį",
+    saving: "Išsaugoma...",
+    saveChanges: "Išsaugoti pakeitimus",
+    // ---------ProfilePageLayout-----------------------------------------------
+    navTitle: "Profilis",
+    myData: "Mano duomenys",
+    editProfile: "Redaguoti profilį",
+    payments: "Mokėjimai",
+  },
 };
 
 export default translations;
