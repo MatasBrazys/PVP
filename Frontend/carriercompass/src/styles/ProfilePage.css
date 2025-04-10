@@ -18,7 +18,7 @@
 
 .profile-sidebar {
   width: 250px;
-  min-height: 700px;
+  min-height: 750px;
   padding: 40px 20px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -30,10 +30,34 @@
   transition: all 0.3s ease-in-out;
 }
 
+.profile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logout-button {
+  margin-top: auto;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 600; 
+
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
 .profile-top-section {
   margin-bottom: 20px;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
   color: #2d2d2d;
   padding-left: 5px;
   border-bottom: 1px solid #e6e6e6;
@@ -62,7 +86,7 @@
 }
 
 .profile-title-section.active {
-  background-color: #e6e6e6;
+  background-color: rgb(238, 238, 238);
   color: #000;
   border-left:#754fc7 4px solid;
 }
@@ -149,7 +173,7 @@
 
 .personal-info-title {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
   color: #2d2d2d;
   margin-bottom: 25px;
   padding-bottom: 10px;
@@ -177,7 +201,7 @@
 .info-value {
   font-size: 16px;
   color: #1a1a1a;
-  font-weight: 500;
+  font-weight: 600;
   background-color: #f9f9f9;
   padding: 10px 15px;
   border-radius: 8px;
@@ -223,7 +247,7 @@
 
 .credits-title {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 800;
   color: #2d2d2d;
   margin-bottom: 25px;
  
@@ -293,10 +317,14 @@
   border-radius: 5px;
   text-align: center;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 600;
 } 
 
 @media (max-width: 950px) {
+  .logout-button {
+   margin-top: 20px;
+
+  }
   .profile-wrapper {
     flex-direction: column;
     gap: 20px;

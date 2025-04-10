@@ -211,6 +211,7 @@ const translations = {
     myData: "My details",
     editProfile: "Edit Profile",
     payments: "Payments",
+    logout: "Sign Out",
   },
 
 
@@ -429,6 +430,7 @@ const translations = {
     myData: "Mano duomenys",
     editProfile: "Redaguoti profilį",
     payments: "Mokėjimai",
+    logout: "Atsijungti",
   },
 };
 

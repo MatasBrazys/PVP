@@ -11,7 +11,10 @@ const SidebarLayout = () => {
 
   const { language } = useContext(LanguageContext);
   const t = translations[language];
-
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   useEffect(() => {
     const verifyToken = async () => {
       if (!token) {
@@ -43,11 +46,14 @@ const SidebarLayout = () => {
       <div className="profile-wrapper">
         <div className="profile-sidebar">
           <h2 className="profile-top-section">{t.navTitle}</h2>
-          <nav>
+          <nav className="profile-nav">
             <NavLink to="/profile/user-data" className="profile-title-section">{t.myData}</NavLink>
             <NavLink to="/profile/edit-profile" className="profile-title-section">{t.editProfile}</NavLink>
             <NavLink to="/profile/billing" className="profile-title-section">{t.payments}</NavLink>
           </nav>
+          <button className="logout-button" onClick={handleLogout}>
+            {t.logout}
+          </button>
         </div>
         <div className="profile-main-content">
           <div className="profile-content-wrapper">

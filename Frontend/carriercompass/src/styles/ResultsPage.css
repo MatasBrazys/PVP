@@ -127,8 +127,8 @@
 }
 
 .result-page-sidebar nav ul li a.active {
-  background: #7F56D9; /* Highlighted background */
-  color: white;
+  background: rgb(238, 238, 238); /* Highlighted background */
+
   font-weight: bold; /* Make text bold when active */
   border-radius: 8px;
 }
