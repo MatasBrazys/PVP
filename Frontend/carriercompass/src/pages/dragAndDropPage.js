@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import "../styles/DragAndDrop.css";
 import axios from "axios";
 import LoadingScreen from "../components/DragAndDropPage/LoadingScreen";
-
+import DotLoader from "../components/General/Loader";
 import JobSelection from "../components/DragAndDropPage/JobSelection";
 import FileUpload from "../components/DragAndDropPage/FileUpload";
 import ToggleButtons from "../components/DragAndDropPage/ToggleButtons";
@@ -20,14 +20,42 @@ const DragAndDrop = () => {
   const [activeButton, setActiveButton] = useState("general");
   const [showDropdown, setShowDropdown] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isValidLoading, setIsValidLoading] = useState(true); // ⬅️ Add loading state
   const [showResults, setShowResults] = useState(false);
   const [analysis, setAnalysis] = useState(null);
   const [showComponents, setShowComponents] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
-
   useEffect(() => {
     setTimeout(() => setShowComponents(true), 100);
   }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  
+  //   const verifyToken = async () => {
+  //     if (!token) {
+  //       navigate("/login");
+  //       return;
+  //     }
+  
+  //     try {
+  //       const response = await fetch(`http://localhost:8000/user/verify-token/${token}`);
+  //       if (!response.ok) {
+  //         throw new Error("Invalid token");
+  //       }
+  //       setIsValidLoading(false); // ✅ Token is valid, stop loading
+  //       setTimeout(() => setShowComponents(true), 100); // show content
+  //     } catch (error) {
+  //       console.error("Authentication failed:", error);
+  //       localStorage.removeItem("token");
+  //       navigate("/login");
+  //     }
+  //   };
+  
+  //   verifyToken();
+  // }, [navigate]);
+  // if (isValidLoading) {
+  //   return <DotLoader/> 
+  // }
 
   const handleJobSelection = (job) => {
     setSelectedJobs((prev) =>

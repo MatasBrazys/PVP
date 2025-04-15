@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
 import translations from "../../translations";
 
+
 const LoadingScreen = () => {
   const { language } = useContext(LanguageContext);
   const t = translations[language] || translations["en"]; // Fallback to English

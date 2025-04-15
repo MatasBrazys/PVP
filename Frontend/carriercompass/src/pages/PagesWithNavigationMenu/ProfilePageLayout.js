@@ -2,19 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { LanguageContext } from "../../context/LanguageContext";
 import translations from "../../translations";
 import "../../styles/ProfilePage.css";
+import Loader from "../../components/General/Loader";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
 
 const SidebarLayout = () => {
   const navigate = useNavigate();
-
-  const token = localStorage.getItem("token");
-
   const { language } = useContext(LanguageContext);
   const t = translations[language];
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
+
+  const [isLoading, setIsLoading] = useState(true); // ⬅️ Add loading state
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     const verifyToken = async () => {
       if (!token) {
@@ -27,19 +25,25 @@ const SidebarLayout = () => {
         if (!response.ok) {
           throw new Error("Invalid token");
         }
+        setIsLoading(false); // ⬅️ Token is valid
       } catch (error) {
         console.error("Authentication failed:", error);
         localStorage.removeItem("token");
         navigate("/login");
-      } finally {
-
       }
     };
 
     verifyToken();
   }, [navigate, token]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
+  if (isLoading) {
+    return <Loader/> // ⬅️ Show loading or spinner
+  }
 
   return (
     <div className="profile-container">
