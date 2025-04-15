@@ -28,7 +28,6 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True 
-from pydantic import BaseModel
 
 class UserUpdateRequest(BaseModel):
     token: str
@@ -38,3 +37,16 @@ class UserUpdateRequest(BaseModel):
     current_password: Optional[str] = None
     new_password: Optional[str] = None
     repeat_password: Optional[str] = None
+
+class JobResponse(BaseModel):
+    id_Jobs: int
+    title: str
+    link: str
+    image: str
+    salary: str
+    city: str
+    company: str
+    description: str
+
+    class Config:
+        orm_mode = True

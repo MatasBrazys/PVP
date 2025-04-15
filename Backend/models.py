@@ -29,3 +29,13 @@ class CV(Base):
     file_path = Column(String)
     fk_User = Column(Integer, ForeignKey('user.id_User'))
 
+class Jobs(Base):
+    __tablename__ = "jobs"
+    id_Jobs = Column(Integer, primary_key=True, index=True)
+    title = Column(String(255))
+    link = Column(String(500))
+    image = Column(String(500))
+    salary = Column(String(100))
+    city = Column(String(100))
+    company = Column(String(255))
+    description = Column(String(1000))
