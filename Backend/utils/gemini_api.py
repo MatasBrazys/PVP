@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-# GEMINI_API_KEY = "AIzaSyCMM1JIn9NgbKkFF5jFQkpj6mJMCv2yQpA"
 genai.configure(api_key=GEMINI_API_KEY)
 
 def analyze_text_with_gemini(text, language="ITA"):
