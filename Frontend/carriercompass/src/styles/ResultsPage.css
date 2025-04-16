@@ -16,7 +16,7 @@
   top: 100px;
   bottom: 0;
   overflow-y: auto;
-  z-index: 1;
+  z-index: 1000;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   background: white;
   overflow: hidden;
@@ -82,13 +82,13 @@
 
 .result-page-main-content {
   flex: 1;
-  padding: 20px;
+
   transition: margin-left 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  margin-left: 250px;
+  margin-left: 280px;
   /* Ensures space for the sidebar */
 }
 
@@ -146,6 +146,7 @@
   justify-content: flex-start;
   padding-bottom: 50px;
   max-width: 1800px;
+  margin-top: 20px;
   /* Increased max-width for a larger container */
 
 }
@@ -295,6 +296,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .container-unique h1 {
@@ -319,7 +321,7 @@
   border-radius: 20px;
   padding: 20px;
   text-align: left;
-
+  
 }
 
 .job-card-unique h2 {
@@ -442,7 +444,7 @@
 }
 
 .job-card-custom:hover {
-  background: #ebebff;
+  background: #f8f8ff;
   /* Apply the background color on hover */
   transform: scale(1.02);
   /* Slightly scale the card on hover */
@@ -467,13 +469,13 @@
 }
 
 .job-title-custom {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #333;
 }
 
 .job-company-custom {
-  font-size: 16px;
+  font-size: 14px;
   color: #6e6e6e;
   font-weight: 600;
 }
@@ -485,7 +487,7 @@
 }
 
 .job-location-custom {
-  font-size: 20px;
+  font-size: 18px;
   color: #666;
   font-weight: 600;
   margin-bottom: 10px;
@@ -579,11 +581,14 @@
   }
 
   .job-title-custom {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .job-location-custom {
-    font-size: 20px;
+    font-size: 16px;
+  }
+  .job-company-custom {
+    font-size: 12px;
   }
 
   .job-action-custom {
@@ -592,7 +597,7 @@
   }
 
   .job-salary-custom {
-    font-size: 16px;
+    font-size: 12px;
   }
 
 

@@ -14,9 +14,11 @@ import JobsPage from "./pages/ToolPages/JobsPage";
 import Courses from "./pages/ToolPages/CoursesPage";
 import Login from "./components/Login/LoginPage";
 import Reg from "./components/Register/RegisterPage";
+import JobListing from "./components/ResultPage/JobListingPage";
 import ProfileLayout from "./pages/PagesWithNavigationMenu/ProfilePageLayout";
 import ProfileDataPage from "./pages/ProfileRoutePages/ProfileDataPage";
 import ProfileEditPage from "./pages/ProfileRoutePages/ProfileEditPage";
+
 
 function Layout() {
   const location = useLocation();
@@ -47,6 +49,7 @@ function Layout() {
               <Route path="CVRecommendationsPage" element={<CVRecommendationsPage />} />
               <Route path="JobsPage" element={<JobsPage />} />
               <Route path="Courses" element={<Courses />} />
+              <Route path="jobs/:id_Jobs" element={<JobListing />} />
             </Route>
           ) : null}
         </Routes>

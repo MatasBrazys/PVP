@@ -8,6 +8,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
+
 }
 
 
@@ -22,6 +23,7 @@
 
   padding: 0 20px;
   font-family: Inter, sans-serif;
+
 }
 
 .logo-container {

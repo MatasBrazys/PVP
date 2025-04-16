@@ -20,4 +20,5 @@ app.include_router(register.router, prefix="/user", tags=["Register"])
 app.include_router(profile.router, prefix="/user", tags=["Get user"])
 app.include_router(profile.router, prefix="/user", tags=["User update"])
 app.include_router(jobs.router, prefix="/jobs", tags=["Recommended jobs"])
+app.include_router(jobs.router, prefix="/jobs", tags=["Job listing"])
 

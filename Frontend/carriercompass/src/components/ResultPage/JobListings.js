@@ -5,7 +5,7 @@ import "../../styles/ResultsPage.css";
 
 const JobCard = ({ job }) => {
   return (
-    <a href={job.link} className="job-card-custom full-width" target="_blank" rel="noopener noreferrer">
+    <a href={`/results/jobs/${job.id_Jobs}`} className="job-card-custom full-width" target="_blank" rel="noopener noreferrer">
       <img src={job.image} alt={job.title} className="job-image-custom" />
       <div className="job-info-custom">
         <h2 className="job-title-custom">{job.title}</h2>
